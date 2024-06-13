@@ -1,0 +1,16 @@
+project_name,project_manager,start_date,end_date
+Example Project,John Doe,2024-06-01,2024-06-30
+
+profile_name,details
+Profile 1,Details of Profile 1
+Profile 2,Details of Profile 2
+Profile 3,Details of Profile 3
+Profile 4,Details of Profile 4
+Profile 5,Details of Profile 5
+Profile 6,Details of Profile 6
+Profile 7,Details of Profile 7
+Profile 8,Details of Profile 8
+
+employee_id,name,position
+1,Alice Smith,Engineer
+2,Bob Johnson,Manager

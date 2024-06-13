@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Umfragen</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        
+        #Firmen_Name {
+            color: aliceblue;
+            background-color: #023b9c;
+        }
+        
+        #logo {
+            padding: 4px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-left: 20px;
+            border: 2px solid whitesmoke;
+            border-radius: 0%;
+        }
+        
+        #Umfrage_Tittel {
+            color: black;
+            background-color: gray;
+            margin: 50px 50px;
+        }
+        
+        #Untertittel {
+            color: black;
+            margin: 50px 50px;
+        }
+        
+        #umfrageForm {
+            color: black;
+            margin: 50px 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="Umfrage_Tittel">
+        <h1>Mitarbeiterumfrage</h1>
+    </div>
+    <div id="Untertittel">
+        <h2>Bitte nehmen Sie sich einen Moment Zeit, um uns Ihr Feedback mitzuteilen.</h2>
+    </div>
+
+
+
+
+    <form id="umfrageForm">
+        <p>1. Wie zufrieden sind Sie mit Ihrem Arbeitsplatz?</p>
+        <input type="radio" name="frage1" value="sehr_zufrieden"> SEHR ZUFRIDEN <br>
+        <input type="radio" name="frage1" value="zufrieden"> Zufrieden<br>
+        <input type="radio" name="frage1" value="neutral"> Neutral<br>
+        <input type="radio" name="frage1" value="unzufrieden"> Unzufrieden<br>
+        <input type="radio" name="frage1" value="sehr_unzufrieden"> Sehr unzufrieden<br>
+
+        <p>2. Welche Verbesserungen schlagen Sie vor?</p>
+        <textarea name="frage2" rows="4" cols="50"></textarea>
+        <p>3. Haben Sie weitere Anmerkungen oder Kommentare?</p>
+        <textarea name="frage3" rows="4" cols="50"></textarea>
+
+        <br>
+        <input type="submit" value="Umfrage abschicken">
+    </form>
+
+    <script>
+        // Formularabsendung behandeln
+        const umfrageForm = document.getElementById('umfrageForm');
+        umfrageForm.addEventListener("submit", function(e) {
+            e.preventDefault;
+
+            // Daten aus dem Formular sammeln
+            const frage1 = umfrageForm.querySelector('input[name="frage1"]:checked');
+            const frage2 = umfrageForm.querySelector('textarea[name="frage2"]');
+            const frage3 = umfrageForm.querySelector('textarea[name="frage3"]');
+
+            if (!frage1 || !frage2 || !frage3) {
+                alert('Bitte füllen Sie alle Felder aus, bevor Sie die Umfrage abschicken.');
+                return;
+            }
+
+
+
+            // Daten im lokalen Speicher speichern
+            const umfrageDaten = {
+                frage1: frage1.value,
+                frage2: frage2.value,
+                frage3: frage3.value
+            };
+            localStorage.setItem('umfrageDaten', JSON.stringify(umfrageDaten));
+
+            // Erfolgsmeldung anzeigen
+            alert('Die Umfrage wurde erfolgreich abgeschickt. Vielen Dank für Ihr Feedback!');
+        });
+    </script>
+
+
+</body>
+
+</html>

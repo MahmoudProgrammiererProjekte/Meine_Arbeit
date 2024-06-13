@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DOM Manipulation Aufgabe</title>
+</head>
+
+<body>
+    <h1>ToDo-Liste</h1>
+    <input type="text" id="taskInput" placeholder="Neue Aufgabe eingeben">
+    <button id="addTaskButton">Hinzufügen</button>
+    <ul id="taskList">
+        <!-- Hier werden die Aufgaben hinzugefügt -->
+    </ul>
+
+    <script>
+        // JavaScript-Code für die DOM-Manipulation
+        document.addEventListener("DOMContentLoaded", function() {
+            // Elemente aus dem DOM abrufen
+            const taskInput = document.getElementById("taskInput");
+            const addTaskButton = document.getElementById("addTaskButton");
+            const taskList = document.getElementById("taskList");
+
+            // Event-Handler für das Hinzufügen einer Aufgabe
+            addTaskButton.addEventListener("click", function() {
+                const taskText = taskInput.value.trim(); // Text ohne führende/trailing Leerzeichen
+
+                if (taskText !== "") {
+                    // Ein neues Listenelement erstellen und mit dem eingegebenen Text füllen
+                    const listItem = document.createElement("li");
+                    listItem.textContent = taskText;
+
+                    // Ein Löschen-Button für das Listenelement hinzufügen
+                    const deleteButton = document.createElement("button");
+                    deleteButton.textContent = "Löschen";
+                    deleteButton.addEventListener("click", function() {
+                        taskList.removeChild(listItem);
+                    });
+
+                    // Das neue Listenelement zur Liste hinzufügen
+                    listItem.appendChild(deleteButton);
+                    taskList.appendChild(listItem);
+
+                    // Das Eingabefeld zurücksetzen
+                    taskInput.value = "";
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
