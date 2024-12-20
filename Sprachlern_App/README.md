@@ -11,17 +11,33 @@
   - Ein dynamisches System zum Laden und Verwalten von Videos und Fragen.
   - Integration einer lokalen Serverumgebung (Django's Entwicklungsserver) zur Analyse und Bearbeitung von Fehlern.
 
+## Zukünftige Entwicklungen:
+- **Technologie-Integration:** 
+  - Einführung moderner Frontend-Frameworks wie **React.js** zur Verbesserung der Benutzeroberfläche und Benutzererfahrung.
+  - Einsatz von **Node.js** und **Express** für eventuelle serverseitige Erweiterungen.
+  - Nutzung von **Docker**, um die Anwendung in isolierten Containern bereitzustellen und plattformunabhängig zu machen.
+  - Implementierung von CI/CD-Pipelines für automatisiertes Testen und Deployment.
+- **Neue Features:**
+  - **Benutzerregistrierung:** Eine Plattform, die individuelle Fortschritte speichert und analysiert.
+  - **Fortschrittsverfolgung:** Nutzer können ihre Lernergebnisse und abgeschlossene Aufgaben sehen.
+  - **Quiz-Funktion:** Erweiterung mit dynamischen Fragen, die auf dem Video basieren.
+  - **Cloud-Hosting:** Deployment der App auf Plattformen wie Heroku oder AWS, um eine hohe Verfügbarkeit zu gewährleisten.
+- **Testing und Qualitätssicherung:**
+  - Implementierung von automatisierten Tests mit Frameworks wie **Selenium** und **pytest**.
+  - Einsatz von **End-to-End-Testing**, um sicherzustellen, dass die App reibungslos funktioniert.
+
 ## Mein Ziel mit diesem Projekt:
 - **Lernziel:** 
-  - Praktische Anwendung von Django für die Entwicklung vollständiger Webanwendungen.
-  - Vertiefung der Kenntnisse in Backend- und Frontend-Entwicklung.
-  - Erlernen des Umgangs mit Servern und Hosting-Plattformen (z. B. GitHub und Heroku).
+  - Praktische Anwendung von Django und neuen Technologien zur Entwicklung vollständiger Webanwendungen.
+  - Vertiefung der Kenntnisse in Backend- und Frontend-Entwicklung mit modernen Tools.
+  - Erlernen von DevOps-Technologien wie Docker und CI/CD.
 - **Projektziel:** 
   - Bereitstellung einer voll funktionsfähigen Sprachlern-Plattform für Endnutzer, die sowohl auf Desktop- als auch auf Mobilgeräten zugänglich ist.
-  - Implementierung von erweiterten Funktionen wie Benutzerregistrierung, Fortschrittsverfolgung und Quiz-Auswertungen.
+  - Integration von Features, die den Sprachlernprozess effizienter und interaktiver machen.
+  - Langfristige Skalierung der Anwendung für eine größere Nutzerbasis.
 - **Karriereperspektive:**
-  - Aufbau eines umfassenden Portfolios, das meine Fähigkeiten in der Entwicklung von Webanwendungen zeigt.
-  - Nachweis meiner Fähigkeit, an realen Projekten zu arbeiten und technische Herausforderungen zu bewältigen.
+  - Aufbau eines Portfolios, das meine Fähigkeiten in der Webentwicklung und modernen Technologie-Integration zeigt.
+  - Nachweis meiner Fähigkeit, technische Herausforderungen zu meistern und an realen Projekten zu arbeiten.
 
 ## Zusammenfassung:
-Dieses Projekt ist ein praktisches Beispiel für meine Fähigkeiten, Webanwendungen zu entwickeln und zu optimieren. Es kombiniert meine technischen Fähigkeiten mit Kreativität, um eine nützliche Lösung für Sprachlernende bereitzustellen.
+Dieses Projekt ist ein praktisches Beispiel für meine Fähigkeiten, Webanwendungen zu entwickeln und zu optimieren. Es kombiniert meine technischen Fähigkeiten mit Kreativität, um eine nützliche Lösung für Sprachlernende bereitzustellen. Durch die Integration moderner Technologien wie React.js, Node.js und Docker strebe ich an, eine innovative, skalierbare und benutzerfreundliche Plattform bereitzustellen, die ständig weiterentwickelt wird.
