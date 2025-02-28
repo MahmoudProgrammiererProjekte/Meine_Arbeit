@@ -1,8 +1,13 @@
-# Meine_Arbeit
+# Meine Projekte und Skripte
 
-## Projektbeschreibung
+Während meiner Ausbildungszeit bei AVL habe ich intensiv an verschiedenen Tickets gearbeitet, die mir über Jira zugewiesen wurden. Alle Skripte und Dateien wurden von mir eigenständig entwickelt – ohne externe Hilfe und in einer Zeit, in der moderne Tools wie ChatGPT noch nicht verfügbar waren.
 
-Dieses Projekt enthält verschiedene Code-Beispiele und Übungen, die während meiner Ausbildung und beruflichen Weiterentwicklung entstanden sind. Die Themen umfassen grundlegende Programmierkonzepte, Fehlerbehandlung, Schleifen, Funktionen, Klassen und Module.
+**Was habe ich gelernt?**
+- Fundierte Kenntnisse in Python: Fehlerbehandlung (try/except), reguläre Ausdrücke, Klassen, Schleifen, Funktionen, Module, Listen und Dictionaries.
+- Selbstständige Problemlösung und Anwendung der erarbeiteten Grundlagen im zweiten Ausbildungsjahr.
+- Erweiterung meiner Fähigkeiten durch eigenständiges Erlernen von JavaScript, weiteren Bibliotheken und Frameworks.
+
+Diese Skripte bilden die Basis für meine weitere Entwicklung und zeigen, wie ich Probleme eigenständig analysiert und gelöst habe. Schau dir gerne die einzelnen Dateien an, um mehr über meine Herangehensweise zu erfahren.
 
 ## Verzeichnisstruktur
 
