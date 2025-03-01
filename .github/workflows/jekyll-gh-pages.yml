@@ -1,0 +1,32 @@
+name: Deploy Specific Files to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout des Repositories
+      - uses: actions/checkout@v2
+     
+      # Liste alle Dateien im Repository auf (optional)
+      - name: List all files
+        run: ls -R
+       
+      # Kopiere spezifische Dateien in das 'docs' Verzeichnis
+      - name: Copy specific files to docs
+        run: |
+          mkdir -p docs  # Erstelle das docs-Verzeichnis, falls es nicht existiert
+          cp 2025/JS_HTML_SCC/index.html docs/  # Kopiere die index.html
+          cp 2025/JS_HTML_SCC/script.js docs/   # Kopiere das script.js
+          cp 2025/JS_HTML_SCC/style.css docs/   # Kopiere die style.css
+     
+      # Deploy zu GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs  # Der Ordner, der auf GitHub Pages veröffentlicht wird
