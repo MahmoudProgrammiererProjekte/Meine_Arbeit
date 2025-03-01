@@ -1,0 +1,155 @@
+/* Globales Styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    transition: background 0.3s, color 0.3s;
+  }
+  
+  /* Dark Mode */
+  .dark-mode {
+    background: #121212;
+    color: #e0e0e0;
+  }
+  
+  .dark-mode header,
+  .dark-mode section,
+  .dark-mode footer {
+    background: rgba(0, 0, 0, 0.8);
+  }
+  
+  /* Header */
+  header {
+    text-align: center;
+    padding: 2rem 1rem;
+    background: rgba(255, 255, 255, 0.8);
+    width: 100%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+    position: relative;
+  }
+  
+  #dark-mode-toggle {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    padding: 8px 12px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  #dark-mode-toggle:hover {
+    background-color: #0056b3;
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+  }
+  
+  header p {
+    margin: 0.5rem 0 0;
+    font-size: 1.2rem;
+    color: #555;
+  }
+  
+  /* Sektionen */
+  section {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin: 1rem;
+    width: 90%;
+    max-width: 800px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  
+  section.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  section h2 {
+    margin-top: 0;
+    font-size: 2rem;
+    border-bottom: 2px solid #66a6ff;
+    display: inline-block;
+    padding-bottom: 0.3rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Buttons für Skills und Tools */
+  .skill-buttons, .tool-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .clickable {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .clickable:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+  }
+  
+  .highlight {
+    background-color: #28a745 !important;
+  }
+  
+  /* Button für GitHub-Link */
+  .button {
+    display: inline-block;
+    background-color: #ff6600;
+    color: #fff;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-weight: bold;
+  }
+  
+  .button:hover {
+    background-color: #cc5200;
+    transform: translateY(-3px);
+  }
+  
+  /* Footer */
+  footer {
+    margin-top: auto;
+    padding: 1rem;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+  }
+  
+  footer a {
+    color: #007BFF;
+    text-decoration: none;
+  }
+  
+  footer a:hover {
+    text-decoration: underline;
+  }
+  
