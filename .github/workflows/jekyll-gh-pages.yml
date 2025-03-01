@@ -1,0 +1,28 @@
+name: Deploy Specific Files to GitHub Pages
+
+on:
+ push:
+   branches:
+     - main
+
+jobs:
+ deploy:
+   runs-on: ubuntu-latest
+   steps:
+     - uses: actions/checkout@v2
+     
+     - name: List all files
+       run: ls -R
+       
+     - name: Copy specific files to docs
+       run: |
+         mkdir -p docs
+         cp 2025/index.html docs/
+         cp 2025/script.js docs/
+         cp 2025/style.css docs/
+     
+     - name: Deploy to GitHub Pages
+       uses: peaceiris/actions-gh-pages@v3
+       with:
+         github_token: ${{ secrets.GITHUB_TOKEN }}
+         publish_dir: ./docs
