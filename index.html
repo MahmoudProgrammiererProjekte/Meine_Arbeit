@@ -71,7 +71,7 @@
     }
   </style>
 </head>
-<body class="font-sans antialiased selection:bg-white selection:text-black">
+<body class="font-sans antialiased selection:bg-white selection:text-black relative">
 
   <nav class="fixed w-full z-50 bg-gradient-to-b from-black/90 to-transparent backdrop-blur-sm transition-all duration-300 py-6">
     <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
@@ -108,7 +108,7 @@
       
       <div class="w-full md:w-5/12">
         <div class="relative w-full aspect-[4/5] max-w-md mx-auto group">
-          <img src="IMG_8230.jpeg" alt="Mahmoud Portrait" class="relative z-10 w-full h-full object-cover grayscale opacity-90 group-hover:grayscale-0 group-hover:opacity-100 transition duration-700 ease-in-out shadow-2xl">
+          <img src="IMG_8230.jpeg" alt="Mahmoud Portrait" class="relative z-10 w-full h-full object-cover shadow-2xl">
           <div class="absolute inset-0 border border-gray-700 translate-x-4 translate-y-4 z-0 group-hover:translate-x-6 group-hover:translate-y-6 transition duration-700 ease-in-out"></div>
         </div>
       </div>
@@ -241,12 +241,88 @@
       <div class="mt-32 flex flex-col md:flex-row items-center justify-between text-[10px] md:text-xs text-gray-600 font-semibold tracking-[0.2em] uppercase">
         <p>© 2026 MAHMOUD. ALL RIGHTS RESERVED.</p>
         <div class="flex space-x-6 mt-6 md:mt-0">
-          <a href="#" class="hover:text-gray-300 transition">Impressum</a>
-          <a href="#" class="hover:text-gray-300 transition">Datenschutz</a>
+          <button onclick="openModal('impressum-modal')" class="hover:text-gray-300 transition uppercase tracking-widest focus:outline-none">Impressum</button>
+          <button onclick="openModal('datenschutz-modal')" class="hover:text-gray-300 transition uppercase tracking-widest focus:outline-none">Datenschutz</button>
         </div>
       </div>
     </div>
   </footer>
+
+  <div id="impressum-modal" class="hidden fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 backdrop-blur-md transition-opacity">
+    <div class="bg-[#0a0a0a] p-8 md:p-12 max-w-xl w-full border border-gray-800 text-gray-300 relative shadow-2xl">
+      <button onclick="closeModal('impressum-modal')" class="absolute top-4 right-6 text-3xl text-gray-500 hover:text-white transition focus:outline-none">&times;</button>
+      <h2 class="text-2xl font-heading font-black italic uppercase mb-6 text-white tracking-wider border-b border-gray-800 pb-4">Impressum</h2>
+      <div class="space-y-4 text-sm leading-relaxed text-gray-400">
+        <p>Angaben gemäß § 5 TMG.</p>
+        <div>
+          <strong class="text-white block mb-1">Vertreten durch:</strong>
+          Mahmoud<br>
+          Software Engineer<br>
+          Regensburg, Germany
+        </div>
+        <div>
+          <strong class="text-white block mb-1">Kontakt:</strong>
+          E-Mail: Benachrichtigung.Mahmoud@hotmail.com
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="datenschutz-modal" class="hidden fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 backdrop-blur-md transition-opacity">
+    <div class="bg-[#0a0a0a] p-8 md:p-12 max-w-3xl w-full max-h-[80vh] overflow-y-auto border border-gray-800 text-gray-300 relative shadow-2xl">
+      <button onclick="closeModal('datenschutz-modal')" class="absolute top-4 right-6 text-3xl text-gray-500 hover:text-white transition focus:outline-none">&times;</button>
+      <h2 class="text-2xl font-heading font-black italic uppercase mb-6 text-white tracking-wider border-b border-gray-800 pb-4">Datenschutzerklärung</h2>
+      <div class="space-y-6 text-sm leading-relaxed text-gray-400">
+        
+        <div>
+          <h3 class="text-lg font-bold text-white mb-2">1. Datenschutz auf einen Blick</h3>
+          <p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.</p>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-bold text-white mb-2">2. Datenerfassung auf dieser Website</h3>
+          <strong class="text-gray-300">Wer ist verantwortlich für die Datenerfassung auf dieser Website?</strong>
+          <p class="mt-1">Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Impressum dieser Website entnehmen.</p>
+        </div>
+
+        <div>
+          <strong class="text-gray-300">Wie erfassen wir Ihre Daten?</strong>
+          <p class="mt-1">Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich z. B. um Daten handeln, die Sie per E-Mail senden. Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website durch unsere IT-Systeme erfasst. Das sind vor allem technische Daten (z. B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs).</p>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-bold text-white mb-2">3. Hosting</h3>
+          <p>Wir hosten unsere Website bei einem externen Dienstleister. Die personenbezogenen Daten, die auf dieser Website erfasst werden, werden auf den Servern des Hosters gespeichert. Hierbei kann es sich v. a. um IP-Adressen, Kontaktanfragen, Meta- und Kommunikationsdaten, Vertragsdaten, Kontaktdaten, Namen, Websitezugriffe und sonstige Daten, die über eine Website generiert werden, handeln.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openModal(modalId) {
+      const modal = document.getElementById(modalId);
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden'; // يمنع التمرير (Scrolling) في الخلفية أثناء فتح النافذة
+    }
+
+    function closeModal(modalId) {
+      const modal = document.getElementById(modalId);
+      modal.classList.add('hidden');
+      document.body.style.overflow = 'auto'; // يعيد التمرير للصفحة
+    }
+
+    // إغلاق النافذة عند الضغط في أي مكان خارجها
+    window.onclick = function(event) {
+      const impressum = document.getElementById('impressum-modal');
+      const datenschutz = document.getElementById('datenschutz-modal');
+      if (event.target == impressum) {
+        closeModal('impressum-modal');
+      }
+      if (event.target == datenschutz) {
+        closeModal('datenschutz-modal');
+      }
+    }
+  </script>
 
 </body>
 </html>
