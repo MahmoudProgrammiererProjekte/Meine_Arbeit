@@ -130,21 +130,29 @@
       <h2 class="text-center font-heading text-4xl font-black italic uppercase mb-16 tracking-widest text-gray-300">Meine Arbeit</h2>
       
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <a href="https://mahmoudprogrammiererprojekte.github.io/ufo-game/" target="_blank" class="project-card relative h-[450px] w-full group block cursor-pointer bg-grayDark border border-gray-800">
+        <a href="https://mahmoudprogrammiererprojekte.github.io/ufo-game/" target="_blank" class="project-card relative h-[450px] w-full group block cursor-pointer bg-grayDark border border-gray-800 hover:border-gray-500 transition-colors duration-500">
           <img src="https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Rocket UFO Game" class="absolute inset-0 w-full h-full object-cover opacity-60">
           <div class="absolute inset-0 image-overlay transition-opacity duration-300 group-hover:opacity-90"></div>
-          <div class="absolute bottom-10 left-10 right-10 z-10">
-            <h3 class="font-heading text-3xl md:text-4xl font-black italic uppercase mb-2 text-white group-hover:text-gray-300 transition">UFO Game</h3>
-            <p class="text-gray-400 text-sm md:text-base max-w-md">Interaktives Web-Spiel mit flüssigen Animationen und komplexer JavaScript-Logik.</p>
+          <div class="absolute bottom-10 left-10 right-10 z-10 flex flex-col items-start">
+            <h3 class="font-heading text-3xl md:text-4xl font-black italic uppercase mb-2 text-white group-hover:text-gray-200 transition">UFO Game</h3>
+            <p class="text-gray-400 text-sm md:text-base max-w-md mb-6">Interaktives Web-Spiel mit flüssigen Animationen und komplexer JavaScript-Logik.</p>
+            <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-white/60 group-hover:text-white transition-colors">
+              <span>Projekt ansehen</span>
+              <svg class="w-4 h-4 transform group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </div>
           </div>
         </a>
 
-        <a href="https://drive.google.com/file/d/1xQjCB_4F-r3_7YMpFDoYMEsUsEHE3moH/view?usp=drivesdk" target="_blank" class="project-card relative h-[450px] w-full group block cursor-pointer bg-grayDark border border-gray-800">
+        <a href="https://drive.google.com/file/d/1xQjCB_4F-r3_7YMpFDoYMEsUsEHE3moH/view?usp=drivesdk" target="_blank" class="project-card relative h-[450px] w-full group block cursor-pointer bg-grayDark border border-gray-800 hover:border-gray-500 transition-colors duration-500">
           <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Mo Website Demo" class="absolute inset-0 w-full h-full object-cover opacity-60">
           <div class="absolute inset-0 image-overlay transition-opacity duration-300 group-hover:opacity-90"></div>
-          <div class="absolute bottom-10 left-10 right-10 z-10">
-            <h3 class="font-heading text-3xl md:text-4xl font-black italic uppercase mb-2 text-white group-hover:text-gray-300 transition">Mo Website</h3>
-            <p class="text-gray-400 text-sm md:text-base max-w-md">Architektur-Demonstration von UI/UX Design und starken Backend-Automatisierungen.</p>
+          <div class="absolute bottom-10 left-10 right-10 z-10 flex flex-col items-start">
+            <h3 class="font-heading text-3xl md:text-4xl font-black italic uppercase mb-2 text-white group-hover:text-gray-200 transition">Mo Website</h3>
+            <p class="text-gray-400 text-sm md:text-base max-w-md mb-6">Architektur-Demonstration von UI/UX Design und starken Backend-Automatisierungen.</p>
+            <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-white/60 group-hover:text-white transition-colors">
+              <span>Projekt ansehen</span>
+              <svg class="w-4 h-4 transform group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </div>
           </div>
         </a>
       </div>
@@ -232,11 +240,25 @@
   <footer id="contact" class="bg-[#020202] py-32 text-center">
     <div class="max-w-4xl mx-auto px-6">
       <h2 class="font-heading text-4xl md:text-6xl font-black italic uppercase mb-6 tracking-tight">Lass uns reden.</h2>
-      <p class="text-gray-500 mb-12 text-sm tracking-widest uppercase font-semibold">Keine Formulare. Schreiben Sie mir direkt.</p>
+      <p class="text-gray-500 mb-16 text-sm tracking-widest uppercase font-semibold">Keine Formulare. Schreiben Sie mir direkt.</p>
       
-      <a href="mailto:Benachrichtigung.Mahmoud@hotmail.com" class="inline-block text-lg md:text-2xl font-bold border-b-2 border-gray-700 pb-2 text-gray-200 hover:text-white hover:border-white transition duration-300">
-        Benachrichtigung.Mahmoud@hotmail.com
-      </a>
+      <div class="flex flex-col md:flex-row justify-center items-center gap-10 md:gap-20">
+        
+        <div class="flex flex-col items-center group cursor-pointer">
+          <span class="text-xs text-gray-600 font-semibold tracking-[0.2em] uppercase mb-2">E-Mail</span>
+          <a href="mailto:Benachrichtigung.Mahmoud@hotmail.com" class="text-sm md:text-base text-gray-300 font-medium group-hover:text-white transition duration-300 pb-1 border-b border-transparent group-hover:border-gray-500">
+            Benachrichtigung.Mahmoud@hotmail.com
+          </a>
+        </div>
+
+        <div class="flex flex-col items-center group cursor-pointer">
+          <span class="text-xs text-gray-600 font-semibold tracking-[0.2em] uppercase mb-2">WhatsApp Business</span>
+          <a href="https://wa.me/4915252690273" target="_blank" class="text-sm md:text-base text-gray-300 font-medium group-hover:text-white transition duration-300 pb-1 border-b border-transparent group-hover:border-gray-500">
+            +49 1525 2690273
+          </a>
+        </div>
+
+      </div>
 
       <div class="mt-32 flex flex-col md:flex-row items-center justify-between text-[10px] md:text-xs text-gray-600 font-semibold tracking-[0.2em] uppercase">
         <p>© 2026 MAHMOUD. ALL RIGHTS RESERVED.</p>
@@ -262,6 +284,7 @@
         </div>
         <div>
           <strong class="text-white block mb-1">Kontakt:</strong>
+          Telefon: +49 1525 2690273<br>
           E-Mail: Benachrichtigung.Mahmoud@hotmail.com
         </div>
       </div>
@@ -287,12 +310,12 @@
 
         <div>
           <strong class="text-gray-300">Wie erfassen wir Ihre Daten?</strong>
-          <p class="mt-1">Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich z. B. um Daten handeln, die Sie per E-Mail senden. Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website durch unsere IT-Systeme erfasst. Das sind vor allem technische Daten (z. B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs).</p>
+          <p class="mt-1">Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich z. B. um Daten handeln, die Sie per E-Mail oder WhatsApp senden. Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website durch unsere IT-Systeme erfasst. Das sind vor allem technische Daten (z. B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs).</p>
         </div>
 
         <div>
           <h3 class="text-lg font-bold text-white mb-2">3. Hosting</h3>
-          <p>Wir hosten unsere Website bei einem externen Dienstleister. Die personenbezogenen Daten, die auf dieser Website erfasst werden, werden auf den Servern des Hosters gespeichert. Hierbei kann es sich v. a. um IP-Adressen, Kontaktanfragen, Meta- und Kommunikationsdaten, Vertragsdaten, Kontaktdaten, Namen, Websitezugriffe und sonstige Daten, die über eine Website generiert werden, handeln.</p>
+          <p>Wir hosten unsere Website bei einem externen Dienstleister. Die personenbezogenen Daten, die auf dieser Website erfasst werden, werden auf den Servern des Hosters gespeichert.</p>
         </div>
       </div>
     </div>
@@ -302,16 +325,15 @@
     function openModal(modalId) {
       const modal = document.getElementById(modalId);
       modal.classList.remove('hidden');
-      document.body.style.overflow = 'hidden'; // يمنع التمرير (Scrolling) في الخلفية أثناء فتح النافذة
+      document.body.style.overflow = 'hidden'; 
     }
 
     function closeModal(modalId) {
       const modal = document.getElementById(modalId);
       modal.classList.add('hidden');
-      document.body.style.overflow = 'auto'; // يعيد التمرير للصفحة
+      document.body.style.overflow = 'auto'; 
     }
 
-    // إغلاق النافذة عند الضغط في أي مكان خارجها
     window.onclick = function(event) {
       const impressum = document.getElementById('impressum-modal');
       const datenschutz = document.getElementById('datenschutz-modal');
