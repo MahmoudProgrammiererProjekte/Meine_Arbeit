@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="de" dir="ltr" class="scroll-smooth">
-<head>
+<html lang="de" dir="ltr" class="scroll-smooth dark"> <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title data-i18n="page_title">Mahmoud | Premium Software Engineering</title>
@@ -12,6 +11,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
+      darkMode: 'class', // تفعيل الوضع الليلي عبر الكلاس
       theme: {
         extend: {
           fontFamily: {
@@ -29,16 +29,23 @@
   </script>
 
   <style>
-    body { background-color: #0a0a0a; color: #ffffff; }
+    /* أزلنا الألوان الثابتة من هنا لنعتمد على Tailwind */
     .hero-text { text-shadow: 0 10px 30px rgba(0,0,0,0.8); letter-spacing: -0.05em; }
     .project-card { overflow: hidden; }
     .project-card img { transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
     .project-card:hover img { transform: scale(1.08); }
     .image-overlay { background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.6) 100%); }
+    
+    /* للوضع النهاري في الصور */
+    html:not(.dark) .image-overlay { background: linear-gradient(to top, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.6) 100%); }
+    
     ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: #0a0a0a; }
-    ::-webkit-scrollbar-thumb { background: #333; }
-    ::-webkit-scrollbar-thumb:hover { background: #555; }
+    ::-webkit-scrollbar-track { background: #f3f4f6; }
+    html.dark ::-webkit-scrollbar-track { background: #0a0a0a; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; }
+    html.dark ::-webkit-scrollbar-thumb { background: #333; }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    html.dark ::-webkit-scrollbar-thumb:hover { background: #555; }
     
     /* Arabic adjustments */
     html[dir="rtl"] .hero-text { letter-spacing: normal; }
@@ -46,39 +53,63 @@
     html[dir="rtl"] .tracking-[0.2em], html[dir="rtl"] .tracking-[0.3em] { letter-spacing: normal; }
   </style>
 </head>
-<body class="font-sans antialiased selection:bg-white selection:text-black relative">
+<body class="font-sans antialiased selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black relative bg-white text-gray-900 dark:bg-[#0a0a0a] dark:text-white transition-colors duration-300">
 
-  <nav class="fixed w-full z-50 bg-gradient-to-b from-black/90 to-transparent backdrop-blur-sm transition-all duration-300 py-6">
+  <nav class="fixed w-full z-50 bg-gradient-to-b from-white/90 dark:from-black/90 to-transparent backdrop-blur-sm transition-all duration-300 py-6">
     <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-      <a href="#" class="font-heading font-black italic text-2xl tracking-tighter uppercase">
+      <a href="#" class="font-heading font-black italic text-2xl tracking-tighter uppercase text-black dark:text-white">
         Mahmoud<span class="text-gray-500">.</span>
       </a>
       
-      <div class="hidden md:flex items-center space-x-8 rtl:space-x-reverse text-sm font-semibold tracking-widest uppercase text-gray-300">
-        <a href="#home" class="hover:text-white transition" data-i18n="nav_home">Home</a>
-        <a href="#about" class="hover:text-white transition" data-i18n="nav_about">Über Mich</a>
-        <a href="#work" class="hover:text-white transition" data-i18n="nav_work">Meine Arbeit</a>
-        <a href="#contact" class="px-5 py-2 border border-gray-500 rounded-none hover:bg-white hover:text-black hover:border-white transition duration-300 text-white" data-i18n="nav_contact">Kontakt</a>
-        
-        <div class="flex items-center gap-2 border-l border-gray-700 pl-6 rtl:border-l-0 rtl:border-r rtl:pl-0 rtl:pr-6">
-          <button onclick="changeLanguage('de')" class="hover:text-white transition text-xs" id="btn-de">DE</button>
-          <span class="text-gray-700">|</span>
-          <button onclick="changeLanguage('en')" class="hover:text-white transition text-xs" id="btn-en">EN</button>
-          <span class="text-gray-700">|</span>
-          <button onclick="changeLanguage('ar')" class="hover:text-white transition text-xs" id="btn-ar">AR</button>
-        </div>
+      <div class="flex md:hidden items-center gap-4">
+        <button onclick="toggleTheme()" class="text-xl text-gray-600 dark:text-gray-300 focus:outline-none" id="theme-btn-mobile">🌙</button>
+        <button id="mobile-menu-btn" class="text-gray-800 dark:text-white focus:outline-none text-2xl">
+          ☰
+        </button>
       </div>
+
+      <div class="hidden md:flex items-center space-x-8 rtl:space-x-reverse text-sm font-semibold tracking-widest uppercase text-gray-600 dark:text-gray-300">
+        <a href="#home" class="hover:text-black dark:hover:text-white transition" data-i18n="nav_home">Home</a>
+        <a href="#about" class="hover:text-black dark:hover:text-white transition" data-i18n="nav_about">Über Mich</a>
+        <a href="#work" class="hover:text-black dark:hover:text-white transition" data-i18n="nav_work">Meine Arbeit</a>
+        <a href="#contact" class="px-5 py-2 border border-gray-500 rounded-none hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black dark:hover:border-white transition duration-300 text-black dark:text-white" data-i18n="nav_contact">Kontakt</a>
+        
+        <div class="flex items-center gap-2 border-l border-gray-300 dark:border-gray-700 pl-6 rtl:border-l-0 rtl:border-r rtl:pl-0 rtl:pr-6">
+          <button onclick="changeLanguage('de')" class="hover:text-black dark:hover:text-white transition text-xs" id="btn-de">DE</button>
+          <span class="text-gray-400 dark:text-gray-700">|</span>
+          <button onclick="changeLanguage('en')" class="hover:text-black dark:hover:text-white transition text-xs" id="btn-en">EN</button>
+          <span class="text-gray-400 dark:text-gray-700">|</span>
+          <button onclick="changeLanguage('ar')" class="hover:text-black dark:hover:text-white transition text-xs" id="btn-ar">AR</button>
+        </div>
+
+        <button onclick="toggleTheme()" class="hover:text-black dark:hover:text-white transition text-lg" id="theme-btn-desktop">🌙</button>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white dark:bg-black border-b border-gray-200 dark:border-gray-800 flex-col items-center py-6 space-y-4 text-sm font-semibold tracking-widest uppercase text-gray-600 dark:text-gray-300 shadow-xl">
+        <a href="#home" class="hover:text-black dark:hover:text-white transition" data-i18n="nav_home">Home</a>
+        <a href="#about" class="hover:text-black dark:hover:text-white transition" data-i18n="nav_about">Über Mich</a>
+        <a href="#work" class="hover:text-black dark:hover:text-white transition" data-i18n="nav_work">Meine Arbeit</a>
+        <a href="#contact" class="px-5 py-2 border border-gray-500 rounded-none hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition duration-300 text-black dark:text-white" data-i18n="nav_contact">Kontakt</a>
+        
+        <div class="flex items-center gap-4 pt-4 border-t border-gray-200 dark:border-gray-800 w-1/2 justify-center">
+          <button onclick="changeLanguage('de')" class="hover:text-black dark:hover:text-white transition text-xs" id="btn-de-mob">DE</button>
+          <span class="text-gray-400 dark:text-gray-700">|</span>
+          <button onclick="changeLanguage('en')" class="hover:text-black dark:hover:text-white transition text-xs" id="btn-en-mob">EN</button>
+          <span class="text-gray-400 dark:text-gray-700">|</span>
+          <button onclick="changeLanguage('ar')" class="hover:text-black dark:hover:text-white transition text-xs" id="btn-ar-mob">AR</button>
+        </div>
     </div>
   </nav>
 
   <header id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
     <div class="absolute inset-0 z-0">
-      <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Coding Background" class="w-full h-full object-cover opacity-20">
-      <div class="absolute inset-0 bg-black/60"></div>
+      <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Coding Background" class="w-full h-full object-cover opacity-20 dark:opacity-20">
+      <div class="absolute inset-0 bg-white/60 dark:bg-black/60"></div>
     </div>
     <div class="relative z-10 text-center px-4 w-full mt-20">
-      <h1 class="font-heading font-black italic uppercase hero-text text-6xl md:text-[9rem] lg:text-[11rem] leading-none mb-4 text-white" data-i18n="hero_title">MAHMOUD</h1>
-      <p class="font-heading font-bold tracking-[0.3em] uppercase text-xs md:text-sm text-gray-400 mt-4" data-i18n="hero_subtitle">Premium Software Engineering & Process Automation</p>
+      <h1 class="font-heading font-black italic uppercase hero-text text-6xl md:text-[9rem] lg:text-[11rem] leading-none mb-4 text-black dark:text-white" data-i18n="hero_title">MAHMOUD</h1>
+      <p class="font-heading font-bold tracking-[0.3em] uppercase text-xs md:text-sm text-gray-600 dark:text-gray-400 mt-4" data-i18n="hero_subtitle">Premium Software Engineering & Process Automation</p>
     </div>
   </header>
 
@@ -86,65 +117,65 @@
     <section id="about" class="py-32 px-6 max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
       <div class="w-full md:w-5/12">
         <div class="relative w-full aspect-[4/5] max-w-md mx-auto group">
-          <img src="IMG_8230.jpeg" alt="Mahmoud Portrait" class="relative z-10 w-full h-full object-cover shadow-2xl bg-gray-900">
-          <div class="absolute inset-0 border border-gray-700 translate-x-4 translate-y-4 rtl:-translate-x-4 z-0 group-hover:translate-x-6 group-hover:translate-y-6 rtl:group-hover:-translate-x-6 transition duration-700 ease-in-out"></div>
+          <img src="IMG_8230.jpeg" alt="Mahmoud Portrait" class="relative z-10 w-full h-full object-cover shadow-2xl bg-gray-200 dark:bg-gray-900">
+          <div class="absolute inset-0 border border-gray-300 dark:border-gray-700 translate-x-4 translate-y-4 rtl:-translate-x-4 z-0 group-hover:translate-x-6 group-hover:translate-y-6 rtl:group-hover:-translate-x-6 transition duration-700 ease-in-out"></div>
         </div>
       </div>
       <div class="w-full md:w-7/12 text-left rtl:text-right">
         <h4 class="text-xs md:text-sm tracking-[0.2em] text-gray-500 uppercase mb-6 font-semibold" data-i18n="about_pretitle">Exzellente Software braucht klare Architektur</h4>
-        <h2 class="font-heading text-3xl md:text-5xl font-bold italic leading-tight mb-8" data-i18n="about_title">Ein hochwertiger Code ist mehr als nur Syntax, er automatisiert Prozesse und <span class="text-gray-500">integriert KI...</span></h2>
-        <p class="text-gray-400 text-lg leading-relaxed max-w-2xl" data-i18n="about_desc">Als Senior Software Engineer verwandle ich komplexe Probleme in elegante Lösungen. Meine Leidenschaft liegt darin, durch sauberen Code und innovative Technologien echten Mehrwert zu schaffen.</p>
+        <h2 class="font-heading text-3xl md:text-5xl font-bold italic leading-tight mb-8 text-black dark:text-white" data-i18n="about_title">Ein hochwertiger Code ist mehr als nur Syntax, er automatisiert Prozesse und <span class="text-gray-500">integriert KI...</span></h2>
+        <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed max-w-2xl" data-i18n="about_desc">Als Senior Software Engineer verwandle ich komplexe Probleme in elegante Lösungen. Meine Leidenschaft liegt darin, durch sauberen Code und innovative Technologien echten Mehrwert zu schaffen.</p>
       </div>
     </section>
 
-    <section id="work" class="py-20 px-4 max-w-7xl mx-auto border-t border-gray-900 pt-32">
-      <h2 class="text-center font-heading text-4xl font-black italic uppercase mb-20 tracking-widest text-gray-300" data-i18n="work_title">Meine Arbeit</h2>
+    <section id="work" class="py-20 px-4 max-w-7xl mx-auto border-t border-gray-200 dark:border-gray-900 pt-32">
+      <h2 class="text-center font-heading text-4xl font-black italic uppercase mb-20 tracking-widest text-gray-800 dark:text-gray-300" data-i18n="work_title">Meine Arbeit</h2>
       
       <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
         
-        <a href="https://mahmoudprogrammiererprojekte.github.io/ufo-game/" target="_blank" class="project-card relative h-[500px] w-full group block bg-grayDark border border-gray-800 hover:border-gray-500 transition-all duration-500">
+        <a href="https://mahmoudprogrammiererprojekte.github.io/ufo-game/" target="_blank" class="project-card relative h-[500px] w-full group block bg-gray-100 dark:bg-grayDark border border-gray-200 dark:border-gray-800 hover:border-gray-400 dark:hover:border-gray-500 transition-all duration-500">
           <img src="https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="UFO Game" class="absolute inset-0 w-full h-full object-cover opacity-50">
           <div class="absolute inset-0 image-overlay opacity-80 group-hover:opacity-95 transition-opacity duration-300"></div>
           <div class="absolute bottom-12 left-12 right-12 z-10 rtl:text-right">
-            <h3 class="font-heading text-3xl font-black italic uppercase mb-3 text-white">UFO Game</h3>
-            <p class="text-gray-400 text-sm mb-8 leading-relaxed" data-i18n="project_ufo_desc">Interaktives Web-Spiel mit flüssigen Animationen und komplexer JavaScript-Logik.</p>
-            <div class="inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-white border-b border-white/20 pb-2 group-hover:border-white transition-all" data-i18n="btn_view_project">
+            <h3 class="font-heading text-3xl font-black italic uppercase mb-3 text-black dark:text-white">UFO Game</h3>
+            <p class="text-gray-700 dark:text-gray-400 text-sm mb-8 leading-relaxed" data-i18n="project_ufo_desc">Interaktives Web-Spiel mit flüssigen Animationen und komplexer JavaScript-Logik.</p>
+            <div class="inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-black dark:text-white border-b border-black/20 dark:border-white/20 pb-2 group-hover:border-black dark:group-hover:border-white transition-all" data-i18n="btn_view_project">
               PROJEKT ANSEHEN <span class="group-hover:translate-x-2 rtl:group-hover:-translate-x-2 transition-transform rtl:rotate-180 inline-block">➔</span>
             </div>
           </div>
         </a>
 
-        <a href="https://drive.google.com/file/d/1xQjCB_4F-r3_7YMpFDoYMEsUsEHE3moH/view?usp=drivesdk" target="_blank" class="project-card relative h-[500px] w-full group block bg-grayDark border border-gray-800 hover:border-gray-500 transition-all duration-500">
+        <a href="https://drive.google.com/file/d/1xQjCB_4F-r3_7YMpFDoYMEsUsEHE3moH/view?usp=drivesdk" target="_blank" class="project-card relative h-[500px] w-full group block bg-gray-100 dark:bg-grayDark border border-gray-200 dark:border-gray-800 hover:border-gray-400 dark:hover:border-gray-500 transition-all duration-500">
           <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Mo Website" class="absolute inset-0 w-full h-full object-cover opacity-50">
           <div class="absolute inset-0 image-overlay opacity-80 group-hover:opacity-95 transition-opacity duration-300"></div>
           <div class="absolute bottom-12 left-12 right-12 z-10 rtl:text-right">
-            <h3 class="font-heading text-3xl font-black italic uppercase mb-3 text-white">Mo Website</h3>
-            <p class="text-gray-400 text-sm mb-8 leading-relaxed" data-i18n="project_mo_desc">Architektur-Demonstration von UI/UX Design und starken Backend-Automatisierungen.</p>
-            <div class="inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-white border-b border-white/20 pb-2 group-hover:border-white transition-all" data-i18n="btn_view_project">
+            <h3 class="font-heading text-3xl font-black italic uppercase mb-3 text-black dark:text-white">Mo Website</h3>
+            <p class="text-gray-700 dark:text-gray-400 text-sm mb-8 leading-relaxed" data-i18n="project_mo_desc">Architektur-Demonstration von UI/UX Design und starken Backend-Automatisierungen.</p>
+            <div class="inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-black dark:text-white border-b border-black/20 dark:border-white/20 pb-2 group-hover:border-black dark:group-hover:border-white transition-all" data-i18n="btn_view_project">
               PROJEKT ANSEHEN <span class="group-hover:translate-x-2 rtl:group-hover:-translate-x-2 transition-transform rtl:rotate-180 inline-block">➔</span>
             </div>
           </div>
         </a>
 
-        <a href="https://github.com/MahmoudProgrammiererProjekte/Meine_Arbeit/blob/main/Hardware_Monitoring_Automation_Project/README.md" target="_blank" class="project-card relative h-[500px] w-full group block bg-grayDark border border-gray-800 hover:border-gray-500 transition-all duration-500">
+        <a href="https://github.com/MahmoudProgrammiererProjekte/Meine_Arbeit/blob/main/Hardware_Monitoring_Automation_Project/README.md" target="_blank" class="project-card relative h-[500px] w-full group block bg-gray-100 dark:bg-grayDark border border-gray-200 dark:border-gray-800 hover:border-gray-400 dark:hover:border-gray-500 transition-all duration-500">
           <img src="https://images.unsplash.com/photo-1518481612222-68bbe828ecd1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Hardware Automation" class="absolute inset-0 w-full h-full object-cover opacity-50">
           <div class="absolute inset-0 image-overlay opacity-80 group-hover:opacity-95 transition-opacity duration-300"></div>
           <div class="absolute bottom-12 left-12 right-12 z-10 rtl:text-right">
-            <h3 class="font-heading text-3xl font-black italic uppercase mb-3 text-white tracking-tighter" data-i18n="project_hw_title">HW-Automatisierung</h3>
-            <p class="text-gray-400 text-sm mb-8 leading-relaxed" data-i18n="project_hw_desc">Systemdiagnose-Tool mit Jenkins-CI/CD. Automatisiertes Testing und terminierte Kundenreports.</p>
-            <div class="inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-white border-b border-white/20 pb-2 group-hover:border-white transition-all" data-i18n="btn_view_doc">
+            <h3 class="font-heading text-3xl font-black italic uppercase mb-3 text-black dark:text-white tracking-tighter" data-i18n="project_hw_title">HW-Automatisierung</h3>
+            <p class="text-gray-700 dark:text-gray-400 text-sm mb-8 leading-relaxed" data-i18n="project_hw_desc">Systemdiagnose-Tool mit Jenkins-CI/CD. Automatisiertes Testing und terminierte Kundenreports.</p>
+            <div class="inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-black dark:text-white border-b border-black/20 dark:border-white/20 pb-2 group-hover:border-black dark:group-hover:border-white transition-all" data-i18n="btn_view_doc">
               DOKUMENTATION <span class="group-hover:translate-x-2 rtl:group-hover:-translate-x-2 transition-transform rtl:rotate-180 inline-block">➔</span>
             </div>
           </div>
         </a>
 
-        <a href="https://github.com/MahmoudProgrammiererProjekte/Meine_Arbeit/tree/main" target="_blank" class="project-card relative h-[500px] w-full group block bg-grayDark border border-gray-800 hover:border-gray-500 transition-all duration-500">
+        <a href="https://github.com/MahmoudProgrammiererProjekte/Meine_Arbeit/tree/main" target="_blank" class="project-card relative h-[500px] w-full group block bg-gray-100 dark:bg-grayDark border border-gray-200 dark:border-gray-800 hover:border-gray-400 dark:hover:border-gray-500 transition-all duration-500">
           <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="GitHub" class="absolute inset-0 w-full h-full object-cover opacity-50">
           <div class="absolute inset-0 image-overlay opacity-80 group-hover:opacity-95 transition-opacity duration-300"></div>
           <div class="absolute bottom-12 left-12 right-12 z-10 rtl:text-right">
-            <h3 class="font-heading text-3xl font-black italic uppercase mb-3 text-white">Source Code</h3>
-            <p class="text-gray-400 text-sm mb-8 leading-relaxed" data-i18n="project_git_desc">Mein öffentliches Repository. Entdecken Sie saubere Code-Strukturen und weitere Projekte.</p>
-            <div class="inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-white border-b border-white/20 pb-2 group-hover:border-white transition-all" data-i18n="btn_view_github">
+            <h3 class="font-heading text-3xl font-black italic uppercase mb-3 text-black dark:text-white">Source Code</h3>
+            <p class="text-gray-700 dark:text-gray-400 text-sm mb-8 leading-relaxed" data-i18n="project_git_desc">Mein öffentliches Repository. Entdecken Sie saubere Code-Strukturen und weitere Projekte.</p>
+            <div class="inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-black dark:text-white border-b border-black/20 dark:border-white/20 pb-2 group-hover:border-black dark:group-hover:border-white transition-all" data-i18n="btn_view_github">
               GITHUB BESUCHEN <span class="group-hover:translate-x-2 rtl:group-hover:-translate-x-2 transition-transform rtl:rotate-180 inline-block">➔</span>
             </div>
           </div>
@@ -153,82 +184,82 @@
       </div>
     </section>
 
-    <section class="py-32 px-6 bg-[#050505] border-t border-b border-gray-900">
+    <section class="py-32 px-6 bg-gray-50 dark:bg-[#050505] border-t border-b border-gray-200 dark:border-gray-900">
         <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20">
           <div class="rtl:text-right">
-            <h2 class="font-heading text-2xl font-black italic uppercase mb-10 border-b border-gray-800 pb-4 text-gray-200 tracking-wider" data-i18n="exp_title">Erfahrung</h2>
+            <h2 class="font-heading text-2xl font-black italic uppercase mb-10 border-b border-gray-300 dark:border-gray-800 pb-4 text-gray-800 dark:text-gray-200 tracking-wider" data-i18n="exp_title">Erfahrung</h2>
             <div class="mb-12">
-              <h3 class="text-xl font-bold mb-1 text-white">Senior Software Engineer</h3>
+              <h3 class="text-xl font-bold mb-1 text-black dark:text-white">Senior Software Engineer</h3>
               <p class="text-gray-500 text-xs tracking-widest uppercase mb-4" data-i18n="exp_focus">Aktueller Fokus</p>
-              <ul class="space-y-3 text-gray-400 text-sm">
+              <ul class="space-y-3 text-gray-600 dark:text-gray-400 text-sm">
                 <li data-i18n="exp_task1">▹ Web-Apps & KI Integration</li>
                 <li data-i18n="exp_task2">▹ DevOps & Jenkins Automatisierung</li>
                 <li data-i18n="exp_task3">▹ Python-Skripte für Hardware-Monitoring</li>
               </ul>
             </div>
             <div>
-              <h3 class="text-xl font-bold mb-1 text-white">IT Specialist</h3>
+              <h3 class="text-xl font-bold mb-1 text-black dark:text-white">IT Specialist</h3>
               <p class="text-gray-500 text-xs tracking-widest uppercase mb-4">AVL Software, Regensburg</p>
             </div>
           </div>
           <div class="rtl:text-right">
-            <h2 class="font-heading text-2xl font-black italic uppercase mb-10 border-b border-gray-800 pb-4 text-gray-200 tracking-wider">Tech Stack</h2>
+            <h2 class="font-heading text-2xl font-black italic uppercase mb-10 border-b border-gray-300 dark:border-gray-800 pb-4 text-gray-800 dark:text-gray-200 tracking-wider">Tech Stack</h2>
             <div class="flex flex-wrap gap-2 rtl:flex-row-reverse rtl:justify-end">
-                <span class="px-4 py-2 bg-black border border-gray-800 text-[10px] font-bold tracking-widest text-gray-400 uppercase">Python</span>
-                <span class="px-4 py-2 bg-black border border-gray-800 text-[10px] font-bold tracking-widest text-gray-400 uppercase">JavaScript</span>
-                <span class="px-4 py-2 bg-black border border-gray-800 text-[10px] font-bold tracking-widest text-gray-400 uppercase">Jenkins</span>
-                <span class="px-4 py-2 bg-black border border-gray-800 text-[10px] font-bold tracking-widest text-gray-400 uppercase">Git / GitHub</span>
-                <span class="px-4 py-2 bg-gray-900 border border-gray-600 text-[10px] font-bold tracking-widest text-white uppercase" data-i18n="tech_automation">CI / CD Automation</span>
+                <span class="px-4 py-2 bg-white dark:bg-black border border-gray-300 dark:border-gray-800 text-[10px] font-bold tracking-widest text-gray-600 dark:text-gray-400 uppercase">Python</span>
+                <span class="px-4 py-2 bg-white dark:bg-black border border-gray-300 dark:border-gray-800 text-[10px] font-bold tracking-widest text-gray-600 dark:text-gray-400 uppercase">JavaScript</span>
+                <span class="px-4 py-2 bg-white dark:bg-black border border-gray-300 dark:border-gray-800 text-[10px] font-bold tracking-widest text-gray-600 dark:text-gray-400 uppercase">Jenkins</span>
+                <span class="px-4 py-2 bg-white dark:bg-black border border-gray-300 dark:border-gray-800 text-[10px] font-bold tracking-widest text-gray-600 dark:text-gray-400 uppercase">Git / GitHub</span>
+                <span class="px-4 py-2 bg-gray-200 dark:bg-gray-900 border border-gray-400 dark:border-gray-600 text-[10px] font-bold tracking-widest text-black dark:text-white uppercase" data-i18n="tech_automation">CI / CD Automation</span>
             </div>
           </div>
         </div>
     </section>
   </main>
 
-  <footer id="contact" class="bg-[#020202] py-32 text-center">
+  <footer id="contact" class="bg-gray-100 dark:bg-[#020202] py-32 text-center transition-colors duration-300">
     <div class="max-w-6xl mx-auto px-6">
-      <h2 class="font-heading text-4xl md:text-6xl font-black italic uppercase mb-10 tracking-tight" data-i18n="contact_title">Lass uns reden.</h2>
+      <h2 class="font-heading text-4xl md:text-6xl font-black italic uppercase mb-10 tracking-tight text-black dark:text-white" data-i18n="contact_title">Lass uns reden.</h2>
       
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 border-t border-gray-900 pt-16">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 border-t border-gray-300 dark:border-gray-900 pt-16">
         
         <div class="flex flex-col items-center group">
-          <span class="text-[10px] text-gray-600 font-bold tracking-[0.3em] uppercase mb-4" data-i18n="contact_email">E-Mail</span>
-          <a href="mailto:Benachrichtigung.Mahmoud@hotmail.com" class="text-xs md:text-sm text-gray-400 hover:text-white transition duration-300">
+          <span class="text-[10px] text-gray-500 dark:text-gray-600 font-bold tracking-[0.3em] uppercase mb-4" data-i18n="contact_email">E-Mail</span>
+          <a href="mailto:Benachrichtigung.Mahmoud@hotmail.com" class="text-xs md:text-sm text-gray-700 dark:text-gray-400 hover:text-black dark:hover:text-white transition duration-300">
             Benachrichtigung.Mahmoud@hotmail.com
           </a>
         </div>
 
         <div class="flex flex-col items-center group">
-          <span class="text-[10px] text-gray-600 font-bold tracking-[0.3em] uppercase mb-4">WhatsApp</span>
-          <a href="https://wa.me/4915252690273" target="_blank" class="text-xs md:text-sm text-gray-400 hover:text-white transition duration-300 tracking-widest" dir="ltr">
+          <span class="text-[10px] text-gray-500 dark:text-gray-600 font-bold tracking-[0.3em] uppercase mb-4">WhatsApp</span>
+          <a href="https://wa.me/4915252690273" target="_blank" class="text-xs md:text-sm text-gray-700 dark:text-gray-400 hover:text-black dark:hover:text-white transition duration-300 tracking-widest" dir="ltr">
             +49 1525 2690273
           </a>
         </div>
 
         <div class="flex flex-col items-center group">
-          <span class="text-[10px] text-gray-600 font-bold tracking-[0.3em] uppercase mb-4">GitHub</span>
-          <a href="https://github.com/MahmoudProgrammiererProjekte/Meine_Arbeit/tree/main" target="_blank" class="text-xs md:text-sm text-gray-400 hover:text-white transition duration-300" data-i18n="contact_github">
+          <span class="text-[10px] text-gray-500 dark:text-gray-600 font-bold tracking-[0.3em] uppercase mb-4">GitHub</span>
+          <a href="https://github.com/MahmoudProgrammiererProjekte/Meine_Arbeit/tree/main" target="_blank" class="text-xs md:text-sm text-gray-700 dark:text-gray-400 hover:text-black dark:hover:text-white transition duration-300" data-i18n="contact_github">
             Codes ansehen ↗
           </a>
         </div>
 
       </div>
 
-      <div class="mt-32 flex flex-col md:flex-row items-center justify-between text-[10px] text-gray-700 font-bold tracking-[0.2em] uppercase border-t border-gray-900/50 pt-10">
+      <div class="mt-32 flex flex-col md:flex-row items-center justify-between text-[10px] text-gray-500 dark:text-gray-700 font-bold tracking-[0.2em] uppercase border-t border-gray-300/50 dark:border-gray-900/50 pt-10">
         <p data-i18n="footer_rights">© 2026 MAHMOUD. ALL RIGHTS RESERVED.</p>
         <div class="flex space-x-8 mt-6 md:mt-0 rtl:space-x-reverse">
-          <button onclick="openModal('impressum-modal')" class="hover:text-gray-400 transition" data-i18n="footer_impressum">Impressum</button>
-          <button onclick="openModal('datenschutz-modal')" class="hover:text-gray-400 transition" data-i18n="footer_privacy">Datenschutz</button>
+          <button onclick="openModal('impressum-modal')" class="hover:text-gray-800 dark:hover:text-gray-400 transition" data-i18n="footer_impressum">Impressum</button>
+          <button onclick="openModal('datenschutz-modal')" class="hover:text-gray-800 dark:hover:text-gray-400 transition" data-i18n="footer_privacy">Datenschutz</button>
         </div>
       </div>
     </div>
   </footer>
 
-  <div id="impressum-modal" class="hidden fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 backdrop-blur-md">
-    <div class="bg-[#0a0a0a] p-8 max-w-xl w-full border border-gray-800 relative rtl:text-right">
-      <button onclick="closeModal('impressum-modal')" class="absolute top-4 right-6 rtl:right-auto rtl:left-6 text-2xl text-gray-500 hover:text-white">&times;</button>
-      <h2 class="text-xl font-heading font-black italic uppercase mb-6 text-white border-b border-gray-800 pb-4" data-i18n="footer_impressum">Impressum</h2>
-      <p class="text-sm text-gray-400 leading-relaxed" data-i18n="impressum_text">
+  <div id="impressum-modal" class="hidden fixed inset-0 z-[100] bg-black/50 dark:bg-black/95 flex items-center justify-center p-4 backdrop-blur-md">
+    <div class="bg-white dark:bg-[#0a0a0a] p-8 max-w-xl w-full border border-gray-200 dark:border-gray-800 relative rtl:text-right">
+      <button onclick="closeModal('impressum-modal')" class="absolute top-4 right-6 rtl:right-auto rtl:left-6 text-2xl text-gray-500 hover:text-black dark:hover:text-white">&times;</button>
+      <h2 class="text-xl font-heading font-black italic uppercase mb-6 text-black dark:text-white border-b border-gray-200 dark:border-gray-800 pb-4" data-i18n="footer_impressum">Impressum</h2>
+      <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed" data-i18n="impressum_text">
         Mahmoud<br>Software Engineer<br>Regensburg, Germany<br><br>
         Kontakt: Benachrichtigung.Mahmoud@hotmail.com<br>
         Tel: +49 1525 2690273
@@ -236,11 +267,11 @@
     </div>
   </div>
 
-  <div id="datenschutz-modal" class="hidden fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 backdrop-blur-md transition-opacity">
-    <div class="bg-[#0a0a0a] p-8 max-w-3xl w-full max-h-[80vh] overflow-y-auto border border-gray-800 relative text-left rtl:text-right">
-      <button onclick="closeModal('datenschutz-modal')" class="absolute top-4 right-6 rtl:right-auto rtl:left-6 text-2xl text-gray-500 hover:text-white">&times;</button>
-      <h2 class="text-xl font-heading font-black italic uppercase mb-6 text-white border-b border-gray-800 pb-4" data-i18n="footer_privacy">Datenschutz</h2>
-      <div class="text-xs text-gray-400 space-y-4" data-i18n="privacy_text">
+  <div id="datenschutz-modal" class="hidden fixed inset-0 z-[100] bg-black/50 dark:bg-black/95 flex items-center justify-center p-4 backdrop-blur-md transition-opacity">
+    <div class="bg-white dark:bg-[#0a0a0a] p-8 max-w-3xl w-full max-h-[80vh] overflow-y-auto border border-gray-200 dark:border-gray-800 relative text-left rtl:text-right">
+      <button onclick="closeModal('datenschutz-modal')" class="absolute top-4 right-6 rtl:right-auto rtl:left-6 text-2xl text-gray-500 hover:text-black dark:hover:text-white">&times;</button>
+      <h2 class="text-xl font-heading font-black italic uppercase mb-6 text-black dark:text-white border-b border-gray-200 dark:border-gray-800 pb-4" data-i18n="footer_privacy">Datenschutz</h2>
+      <div class="text-xs text-gray-600 dark:text-gray-400 space-y-4" data-i18n="privacy_text">
         <p>Wir nehmen den Schutz Ihrer Daten ernst. Auf dieser Website werden keine Cookies zur Nachverfolgung (Tracking) verwendet.</p>
         <p>Der Provider der Seiten (Host) erhebt und speichert automatisch Informationen in sogenannten Server-Log-Dateien, die Ihr Browser automatisch übermittelt (z.B. IP-Adresse). Dies ist technisch notwendig, um Ihnen unsere Website anzuzeigen und die Stabilität zu gewährleisten (Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO).</p>
         <p>Anfragen per E-Mail oder WhatsApp werden absolut vertraulich behandelt.</p>
@@ -249,147 +280,142 @@
   </div>
 
   <script>
+    // --- سكربت القائمة الجانبية للهاتف ---
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      mobileMenu.classList.toggle('flex');
+    });
+
+    // إغلاق القائمة عند الضغط على أي رابط بداخلها
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('flex');
+      });
+    });
+
+    // --- سكربت الوضع الليلي / النهاري ---
+    function toggleTheme() {
+      const htmlEl = document.documentElement;
+      const isDark = htmlEl.classList.contains('dark');
+      
+      if (isDark) {
+        htmlEl.classList.remove('dark');
+        localStorage.theme = 'light';
+        updateThemeIcons('☀️'); // أيقونة الشمس للوضع النهاري
+      } else {
+        htmlEl.classList.add('dark');
+        localStorage.theme = 'dark';
+        updateThemeIcons('🌙'); // أيقونة القمر للوضع الليلي
+      }
+    }
+
+    function updateThemeIcons(icon) {
+      document.getElementById('theme-btn-mobile').innerText = icon;
+      document.getElementById('theme-btn-desktop').innerText = icon;
+    }
+
+    // التحقق من الوضع المحفوظ مسبقاً عند تحميل الصفحة
+    if (localStorage.theme === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+      document.documentElement.classList.remove('dark');
+      updateThemeIcons('☀️');
+    } else {
+      document.documentElement.classList.add('dark');
+      updateThemeIcons('🌙');
+    }
+
+    // --- سكربت النوافذ المنبثقة (Modals) ---
     function openModal(id) { document.getElementById(id).classList.remove('hidden'); document.body.style.overflow = 'hidden'; }
     function closeModal(id) { document.getElementById(id).classList.add('hidden'); document.body.style.overflow = 'auto'; }
 
-    // Translations Dictionary
+    // --- الترجمة ---
     const translations = {
       de: {
         page_title: "Mahmoud | Premium Software Engineering",
-        nav_home: "Home",
-        nav_about: "Über Mich",
-        nav_work: "Meine Arbeit",
-        nav_contact: "Kontakt",
-        hero_title: "MAHMOUD",
-        hero_subtitle: "Premium Software Engineering & Process Automation",
+        nav_home: "Home", nav_about: "Über Mich", nav_work: "Meine Arbeit", nav_contact: "Kontakt",
+        hero_title: "MAHMOUD", hero_subtitle: "Premium Software Engineering & Process Automation",
         about_pretitle: "Exzellente Software braucht klare Architektur",
         about_title: 'Ein hochwertiger Code ist mehr als nur Syntax, er automatisiert Prozesse und <span class="text-gray-500">integriert KI...</span>',
         about_desc: "Als Senior Software Engineer verwandle ich komplexe Probleme in elegante Lösungen. Meine Leidenschaft liegt darin, durch sauberen Code und innovative Technologien echten Mehrwert zu schaffen.",
-        work_title: "Meine Arbeit",
-        project_ufo_desc: "Interaktives Web-Spiel mit flüssigen Animationen und komplexer JavaScript-Logik.",
+        work_title: "Meine Arbeit", project_ufo_desc: "Interaktives Web-Spiel mit flüssigen Animationen und komplexer JavaScript-Logik.",
         btn_view_project: 'PROJEKT ANSEHEN <span class="group-hover:translate-x-2 transition-transform rtl:rotate-180 inline-block">➔</span>',
         project_mo_desc: "Architektur-Demonstration von UI/UX Design und starken Backend-Automatisierungen.",
-        project_hw_title: "HW-Automatisierung",
-        project_hw_desc: "Systemdiagnose-Tool mit Jenkins-CI/CD. Automatisiertes Testing und terminierte Kundenreports.",
+        project_hw_title: "HW-Automatisierung", project_hw_desc: "Systemdiagnose-Tool mit Jenkins-CI/CD. Automatisiertes Testing und terminierte Kundenreports.",
         btn_view_doc: 'DOKUMENTATION <span class="group-hover:translate-x-2 transition-transform rtl:rotate-180 inline-block">➔</span>',
         project_git_desc: "Mein öffentliches Repository. Entdecken Sie saubere Code-Strukturen und weitere Projekte.",
         btn_view_github: 'GITHUB BESUCHEN <span class="group-hover:translate-x-2 transition-transform rtl:rotate-180 inline-block">➔</span>',
-        exp_title: "Erfahrung",
-        exp_focus: "Aktueller Fokus",
-        exp_task1: "▹ Web-Apps & KI Integration",
-        exp_task2: "▹ DevOps & Jenkins Automatisierung",
-        exp_task3: "▹ Python-Skripte für Hardware-Monitoring",
-        tech_automation: "CI / CD Automation",
-        contact_title: "Lass uns reden.",
-        contact_email: "E-Mail",
-        contact_github: "Codes ansehen ↗",
-        footer_rights: "© 2026 MAHMOUD. ALLE RECHTE VORBEHALTEN.",
-        footer_impressum: "Impressum",
-        footer_privacy: "Datenschutz",
+        exp_title: "Erfahrung", exp_focus: "Aktueller Fokus", exp_task1: "▹ Web-Apps & KI Integration", exp_task2: "▹ DevOps & Jenkins Automatisierung", exp_task3: "▹ Python-Skripte für Hardware-Monitoring",
+        tech_automation: "CI / CD Automation", contact_title: "Lass uns reden.", contact_email: "E-Mail", contact_github: "Codes ansehen ↗",
+        footer_rights: "© 2026 MAHMOUD. ALLE RECHTE VORBEHALTEN.", footer_impressum: "Impressum", footer_privacy: "Datenschutz",
         impressum_text: "Mahmoud<br>Software Engineer<br>Regensburg, Deutschland<br><br>Kontakt: Benachrichtigung.Mahmoud@hotmail.com<br>Tel: +49 1525 2690273",
-        privacy_text: "<p>Wir nehmen den Schutz Ihrer Daten ernst. Auf dieser Website werden keine Cookies zur Nachverfolgung (Tracking) verwendet.</p><p>Der Provider der Seiten (Host) erhebt und speichert automatisch Informationen in sogenannten Server-Log-Dateien, die Ihr Browser automatisch übermittelt (z.B. IP-Adresse). Dies ist technisch notwendig, um Ihnen unsere Website anzuzeigen und die Stabilität zu gewährleisten (Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO).</p><p>Anfragen per E-Mail oder WhatsApp werden absolut vertraulich behandelt.</p>"
+        privacy_text: "<p>Wir nehmen den Schutz Ihrer Daten ernst. Auf dieser Website werden keine Cookies zur Nachverfolgung (Tracking) verwendet.</p><p>Der Provider der Seiten (Host) erhebt und speichert automatisch Informationen in sogenannten Server-Log-Dateien...</p>"
       },
       en: {
         page_title: "Mahmoud | Premium Software Engineering",
-        nav_home: "Home",
-        nav_about: "About Me",
-        nav_work: "My Work",
-        nav_contact: "Contact",
-        hero_title: "MAHMOUD",
-        hero_subtitle: "Premium Software Engineering & Process Automation",
+        nav_home: "Home", nav_about: "About Me", nav_work: "My Work", nav_contact: "Contact",
+        hero_title: "MAHMOUD", hero_subtitle: "Premium Software Engineering & Process Automation",
         about_pretitle: "Excellent software needs clear architecture",
         about_title: 'High-quality code is more than just syntax, it automates processes and <span class="text-gray-500">integrates AI...</span>',
         about_desc: "As a Senior Software Engineer, I transform complex problems into elegant solutions. My passion lies in creating real value through clean code and innovative technologies.",
-        work_title: "My Work",
-        project_ufo_desc: "Interactive web game with smooth animations and complex JavaScript logic.",
+        work_title: "My Work", project_ufo_desc: "Interactive web game with smooth animations and complex JavaScript logic.",
         btn_view_project: 'VIEW PROJECT <span class="group-hover:translate-x-2 transition-transform rtl:rotate-180 inline-block">➔</span>',
         project_mo_desc: "Architecture demonstration of UI/UX design and strong backend automations.",
-        project_hw_title: "HW Automation",
-        project_hw_desc: "System diagnostics tool with Jenkins CI/CD. Automated testing and scheduled client reports.",
+        project_hw_title: "HW Automation", project_hw_desc: "System diagnostics tool with Jenkins CI/CD. Automated testing and scheduled client reports.",
         btn_view_doc: 'DOCUMENTATION <span class="group-hover:translate-x-2 transition-transform rtl:rotate-180 inline-block">➔</span>',
         project_git_desc: "My public repository. Discover clean code structures and more projects.",
         btn_view_github: 'VISIT GITHUB <span class="group-hover:translate-x-2 transition-transform rtl:rotate-180 inline-block">➔</span>',
-        exp_title: "Experience",
-        exp_focus: "Current Focus",
-        exp_task1: "▹ Web Apps & AI Integration",
-        exp_task2: "▹ DevOps & Jenkins Automation",
-        exp_task3: "▹ Python Scripts for HW Monitoring",
-        tech_automation: "CI / CD Automation",
-        contact_title: "Let's talk.",
-        contact_email: "Email",
-        contact_github: "View Codes ↗",
-        footer_rights: "© 2026 MAHMOUD. ALL RIGHTS RESERVED.",
-        footer_impressum: "Imprint",
-        footer_privacy: "Privacy Policy",
+        exp_title: "Experience", exp_focus: "Current Focus", exp_task1: "▹ Web Apps & AI Integration", exp_task2: "▹ DevOps & Jenkins Automation", exp_task3: "▹ Python Scripts for HW Monitoring",
+        tech_automation: "CI / CD Automation", contact_title: "Let's talk.", contact_email: "Email", contact_github: "View Codes ↗",
+        footer_rights: "© 2026 MAHMOUD. ALL RIGHTS RESERVED.", footer_impressum: "Imprint", footer_privacy: "Privacy Policy",
         impressum_text: "Mahmoud<br>Software Engineer<br>Regensburg, Germany<br><br>Contact: Benachrichtigung.Mahmoud@hotmail.com<br>Phone: +49 1525 2690273",
-        privacy_text: "<p>We take the protection of your data seriously. No tracking cookies are used on this website.</p><p>The provider of the pages (host) automatically collects and stores information in so-called server log files, which your browser automatically transmits (e.g. IP address). This is technically necessary to display our website to you and to guarantee stability (legal basis is Art. 6 Para. 1 lit. f GDPR).</p><p>Inquiries via e-mail or WhatsApp are treated with absolute confidentiality.</p>"
+        privacy_text: "<p>We take the protection of your data seriously. No tracking cookies are used on this website.</p>"
       },
       ar: {
         page_title: "محمود | هندسة برمجيات متقدمة",
-        nav_home: "الرئيسية",
-        nav_about: "من أنا",
-        nav_work: "أعمالي",
-        nav_contact: "تواصل معي",
-        hero_title: "محمود",
-        hero_subtitle: "هندسة برمجيات متقدمة وأتمتة العمليات",
+        nav_home: "الرئيسية", nav_about: "من أنا", nav_work: "أعمالي", nav_contact: "تواصل معي",
+        hero_title: "محمود", hero_subtitle: "هندسة برمجيات متقدمة وأتمتة العمليات",
         about_pretitle: "البرمجيات الممتازة تتطلب هيكلية واضحة",
         about_title: 'الكود عالي الجودة هو أكثر من مجرد صيغة، إنه يؤتمت العمليات و<span class="text-gray-500">يدمج الذكاء الاصطناعي...</span>',
         about_desc: "بصفتي مهندس برمجيات (Senior)، أقوم بتحويل المشاكل المعقدة إلى حلول أنيقة. شغفي يكمن في خلق قيمة حقيقية من خلال الكود النظيف والتقنيات المبتكرة.",
-        work_title: "أعمالي",
-        project_ufo_desc: "لعبة ويب تفاعلية برسومات متحركة سلسة ومنطق جافا سكريبت معقد.",
+        work_title: "أعمالي", project_ufo_desc: "لعبة ويب تفاعلية برسومات متحركة سلسة ومنطق جافا سكريبت معقد.",
         btn_view_project: 'عرض المشروع <span class="group-hover:-translate-x-2 transition-transform rtl:rotate-180 inline-block">➔</span>',
         project_mo_desc: "عرض معماري لتصميم واجهة وتجربة المستخدم وأتمتة خلفية قوية.",
-        project_hw_title: "أتمتة الأجهزة (HW)",
-        project_hw_desc: "أداة تشخيص النظام باستخدام Jenkins-CI/CD. اختبار آلي وتقارير مجدولة للعملاء.",
+        project_hw_title: "أتمتة الأجهزة (HW)", project_hw_desc: "أداة تشخيص النظام باستخدام Jenkins-CI/CD. اختبار آلي وتقارير مجدولة للعملاء.",
         btn_view_doc: 'قراءة التوثيق <span class="group-hover:-translate-x-2 transition-transform rtl:rotate-180 inline-block">➔</span>',
         project_git_desc: "مستودعي العام. اكتشف هياكل الأكواد النظيفة والمزيد من المشاريع.",
         btn_view_github: 'زيارة جيت هاب <span class="group-hover:-translate-x-2 transition-transform rtl:rotate-180 inline-block">➔</span>',
-        exp_title: "الخبرة",
-        exp_focus: "التركيز الحالي",
-        exp_task1: "▹ تطبيقات الويب ودمج الذكاء الاصطناعي",
-        exp_task2: "▹ عمليات التطوير DevOps وأتمتة Jenkins",
-        exp_task3: "▹ سكربتات بايثون لمراقبة الأجهزة",
-        tech_automation: "أتمتة CI / CD",
-        contact_title: "لنتحدث.",
-        contact_email: "البريد الإلكتروني",
-        contact_github: "عرض الأكواد ↗",
-        footer_rights: "© 2026 محمود. جميع الحقوق محفوظة.",
-        footer_impressum: "بيانات النشر",
-        footer_privacy: "سياسة الخصوصية",
+        exp_title: "الخبرة", exp_focus: "التركيز الحالي", exp_task1: "▹ تطبيقات الويب ودمج الذكاء الاصطناعي", exp_task2: "▹ عمليات التطوير DevOps وأتمتة Jenkins", exp_task3: "▹ سكربتات بايثون لمراقبة الأجهزة",
+        tech_automation: "أتمتة CI / CD", contact_title: "لنتحدث.", contact_email: "البريد الإلكتروني", contact_github: "عرض الأكواد ↗",
+        footer_rights: "© 2026 محمود. جميع الحقوق محفوظة.", footer_impressum: "بيانات النشر", footer_privacy: "سياسة الخصوصية",
         impressum_text: "محمود<br>مهندس برمجيات<br>ريغنسبورغ، ألمانيا<br><br>للتواصل: Benachrichtigung.Mahmoud@hotmail.com<br>هاتف: +49 1525 2690273",
-        privacy_text: "<p>نحن نأخذ حماية بياناتك على محمل الجد. لا يتم استخدام أي ملفات تعريف ارتباط (Cookies) للتتبع على هذا الموقع.</p><p>يقوم مزود الاستضافة بجمع وتخزين المعلومات تلقائياً في ما يسمى بملفات سجل الخادم، والتي يرسلها متصفحك تلقائياً (مثل عنوان IP). هذا ضروري تقنياً لعرض موقعنا لك وضمان استقراره (الأساس القانوني هو المادة 6 الفقرة 1 من اللائحة العامة لحماية البيانات DSGVO).</p><p>تُعامل الاستفسارات عبر البريد الإلكتروني أو واتساب بسرية تامة.</p>"
+        privacy_text: "<p>نحن نأخذ حماية بياناتك على محمل الجد. لا يتم استخدام أي ملفات تعريف ارتباط (Cookies) للتتبع على هذا الموقع.</p>"
       }
     };
 
     function changeLanguage(lang) {
-      // Set HTML lang attribute
       document.documentElement.lang = lang;
-      
-      // Handle RTL (Right-to-Left) for Arabic
-      if (lang === 'ar') {
-        document.documentElement.setAttribute('dir', 'rtl');
-      } else {
-        document.documentElement.setAttribute('dir', 'ltr');
-      }
+      if (lang === 'ar') { document.documentElement.setAttribute('dir', 'rtl'); } 
+      else { document.documentElement.setAttribute('dir', 'ltr'); }
 
-      // Update active button styling
-      document.querySelectorAll('[id^="btn-"]').forEach(btn => btn.classList.remove('text-white', 'font-bold'));
-      document.getElementById('btn-' + lang).classList.add('text-white', 'font-bold');
+      // تحديث أزرار الشاشات الكبيرة
+      document.querySelectorAll('[id^="btn-"]:not([id$="-mob"])').forEach(btn => btn.classList.remove('text-black', 'dark:text-white', 'font-bold'));
+      if(document.getElementById('btn-' + lang)) document.getElementById('btn-' + lang).classList.add('text-black', 'dark:text-white', 'font-bold');
 
-      // Update text using data-i18n tags
+      // تحديث أزرار الهاتف
+      document.querySelectorAll('[id$="-mob"]').forEach(btn => btn.classList.remove('text-black', 'dark:text-white', 'font-bold'));
+      if(document.getElementById('btn-' + lang + '-mob')) document.getElementById('btn-' + lang + '-mob').classList.add('text-black', 'dark:text-white', 'font-bold');
+
       const elements = document.querySelectorAll('[data-i18n]');
       elements.forEach(el => {
         const key = el.getAttribute('data-i18n');
-        if (translations[lang] && translations[lang][key]) {
-          el.innerHTML = translations[lang][key];
-        }
+        if (translations[lang] && translations[lang][key]) { el.innerHTML = translations[lang][key]; }
       });
     }
 
-    // Set default language on load
-    window.onload = () => {
-      changeLanguage('de');
-    };
+    window.onload = () => { changeLanguage('de'); };
   </script>
 
 </body>
