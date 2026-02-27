@@ -154,10 +154,10 @@
         </a>
 
         <a href="https://drive.google.com/file/d/1xQjCB_4F-r3_7YMpFDoYMEsUsEHE3moH/view?usp=drivesdk" target="_blank" class="project-card relative h-[500px] w-full group block bg-white dark:bg-grayDark border border-slate-200 dark:border-gray-800 hover:border-slate-400 dark:hover:border-gray-500 shadow-lg shadow-slate-200/40 hover:shadow-xl hover:shadow-slate-200/60 dark:shadow-none transition-all duration-500 rounded-sm">
-          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Mo Website" class="absolute inset-0 w-full h-full object-cover opacity-60 dark:opacity-50 mix-blend-multiply dark:mix-blend-normal">
+          <img src="https://images.unsplash.com/photo-1554046920-90dc5823c656?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="MOS VISUALS" class="absolute inset-0 w-full h-full object-cover opacity-60 dark:opacity-50 mix-blend-multiply dark:mix-blend-normal">
           <div class="absolute inset-0 image-overlay opacity-90 group-hover:opacity-100 transition-opacity duration-300"></div>
           <div class="absolute bottom-12 left-12 right-12 z-10 rtl:text-right">
-            <h3 class="font-heading text-3xl font-black italic uppercase mb-3 text-slate-900 dark:text-white">Mo Website</h3>
+            <h3 class="font-heading text-3xl font-black italic uppercase mb-3 text-slate-900 dark:text-white">MOS VISUALS</h3>
             <p class="font-sans text-slate-700 dark:text-gray-400 text-sm mb-8 leading-relaxed font-light" data-i18n="project_mo_desc">Architektur-Demonstration von UI/UX Design und starken Backend-Automatisierungen.</p>
             <div class="inline-flex items-center gap-3 text-xs font-nav font-bold uppercase tracking-[0.2em] text-slate-900 dark:text-white border-b border-slate-900/20 dark:border-white/20 pb-2 group-hover:border-slate-900 dark:group-hover:border-white transition-all" data-i18n="btn_view_project">
               PROJEKT ANSEHEN <span class="group-hover:translate-x-2 rtl:group-hover:-translate-x-2 transition-transform rtl:rotate-180 inline-block">➔</span>
@@ -374,6 +374,7 @@
     function openModal(id) { document.getElementById(id).classList.remove('hidden'); document.body.style.overflow = 'hidden'; }
     function closeModal(id) { document.getElementById(id).classList.add('hidden'); document.body.style.overflow = 'auto'; }
 
+    // التعديل حدث هنا أيضاً: تحديث ترجمات project_mo_desc لتعبر عن بورتفوليو المصور
     const translations = {
       de: {
         page_title: "Mahmoud | Premium Software Development",
@@ -384,7 +385,7 @@
         about_desc: "Als Senior Software Developer verwandle ich komplexe Probleme in elegante Lösungen. Meine Leidenschaft liegt darin, durch sauberen Code und innovative Technologien echten Mehrwert zu schaffen.",
         work_title: "Meine Arbeit", project_ufo_desc: "Interaktives Web-Spiel mit flüssigen Animationen und komplexer JavaScript-Logik.",
         btn_view_project: 'PROJEKT ANSEHEN <span class="group-hover:translate-x-2 transition-transform rtl:rotate-180 inline-block">➔</span>',
-        project_mo_desc: "Architektur-Demonstration von UI/UX Design und starken Backend-Automatisierungen.",
+        project_mo_desc: "Portfolio für einen professionellen Fotografen. Flüssige Performance und hochauflösende Videos, entwickelt mit Next.js, React und Tailwind CSS.",
         project_hw_title: "HW-Automatisierung", project_hw_desc: "Systemdiagnose-Tool mit Jenkins-CI/CD. Automatisiertes Testing und terminierte Kundenreports.",
         btn_view_doc: 'DOKUMENTATION <span class="group-hover:translate-x-2 transition-transform rtl:rotate-180 inline-block">➔</span>',
         project_git_desc: "Mein öffentliches Repository. Entdecken Sie saubere Code-Strukturen und weitere Projekte.",
@@ -414,7 +415,7 @@
         about_desc: "As a Senior Software Developer, I transform complex problems into elegant solutions. My passion lies in creating real value through clean code and innovative technologies.",
         work_title: "My Work", project_ufo_desc: "Interactive web game with smooth animations and complex JavaScript logic.",
         btn_view_project: 'VIEW PROJECT <span class="group-hover:translate-x-2 transition-transform rtl:rotate-180 inline-block">➔</span>',
-        project_mo_desc: "Architecture demonstration of UI/UX design and strong backend automations.",
+        project_mo_desc: "Portfolio for a professional photographer showcasing work smoothly and extremely fast, featuring high-resolution videos using Next.js, React, and Tailwind CSS.",
         project_hw_title: "HW Automation", project_hw_desc: "System diagnostics tool with Jenkins CI/CD. Automated testing and scheduled client reports.",
         btn_view_doc: 'DOCUMENTATION <span class="group-hover:translate-x-2 transition-transform rtl:rotate-180 inline-block">➔</span>',
         project_git_desc: "My public repository. Discover clean code structures and more projects.",
@@ -444,7 +445,7 @@
         about_desc: "بصفتي مطور برمجيات (Senior)، أقوم بتحويل المشاكل المعقدة إلى حلول أنيقة. شغفي يكمن في خلق قيمة حقيقية من خلال الكود النظيف والتقنيات المبتكرة.",
         work_title: "أعمالي", project_ufo_desc: "لعبة ويب تفاعلية برسومات متحركة سلسة ومنطق جافا سكريبت معقد.",
         btn_view_project: 'عرض المشروع <span class="group-hover:-translate-x-2 transition-transform rtl:rotate-180 inline-block">➔</span>',
-        project_mo_desc: "عرض معماري لتصميم واجهة وتجربة المستخدم وأتمتة خلفية قوية.",
+        project_mo_desc: "بورتفوليو لمصور محترف يعرض أعماله بسلاسة وسرعة فائقة وفيديوهات عالية الدقة باستخدام تقنيات مثل Next.js و React و Tailwind.",
         project_hw_title: "أتمتة الأجهزة (HW)", project_hw_desc: "أداة تشخيص النظام باستخدام Jenkins-CI/CD. اختبار آلي وتقارير مجدولة للعملاء.",
         btn_view_doc: 'قراءة التوثيق <span class="group-hover:-translate-x-2 transition-transform rtl:rotate-180 inline-block">➔</span>',
         project_git_desc: "مستودعي العام. اكتشف هياكل الأكواد النظيفة والمزيد من المشاريع.",
