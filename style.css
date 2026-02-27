@@ -1,155 +1,84 @@
-/* Globales Styling */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Roboto', sans-serif;
-    background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-    transition: background 0.3s, color 0.3s;
-  }
-  
-  /* Dark Mode */
-  .dark-mode {
-    background: #121212;
-    color: #e0e0e0;
-  }
-  
-  .dark-mode header,
-  .dark-mode section,
-  .dark-mode footer {
-    background: rgba(0, 0, 0, 0.8);
-  }
-  
-  /* Header */
-  header {
-    text-align: center;
-    padding: 2rem 1rem;
-    background: rgba(255, 255, 255, 0.8);
-    width: 100%;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    margin-bottom: 2rem;
-    position: relative;
-  }
-  
-  #dark-mode-toggle {
-    position: absolute;
-    right: 20px;
-    top: 20px;
-    padding: 8px 12px;
-    border: none;
-    background-color: #007BFF;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  #dark-mode-toggle:hover {
-    background-color: #0056b3;
-  }
-  
-  header h1 {
-    margin: 0;
-    font-size: 2.5rem;
-  }
-  
-  header p {
-    margin: 0.5rem 0 0;
-    font-size: 1.2rem;
-    color: #555;
-  }
-  
-  /* Sektionen */
-  section {
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
-    padding: 1.5rem;
-    margin: 1rem;
-    width: 90%;
-    max-width: 800px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-  }
-  
-  section.in-view {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
-  section h2 {
-    margin-top: 0;
-    font-size: 2rem;
-    border-bottom: 2px solid #66a6ff;
-    display: inline-block;
-    padding-bottom: 0.3rem;
-    margin-bottom: 1rem;
-  }
-  
-  /* Buttons für Skills und Tools */
-  .skill-buttons, .tool-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
-  .clickable {
-    background-color: #007BFF;
-    color: #fff;
-    padding: 10px 20px;
-    margin: 5px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-  }
-  
-  .clickable:hover {
-    background-color: #0056b3;
-    transform: translateY(-3px);
-  }
-  
-  .highlight {
-    background-color: #28a745 !important;
-  }
-  
-  /* Button für GitHub-Link */
-  .button {
-    display: inline-block;
-    background-color: #ff6600;
-    color: #fff;
-    padding: 12px 25px;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    font-weight: bold;
-  }
-  
-  .button:hover {
-    background-color: #cc5200;
-    transform: translateY(-3px);
-  }
-  
-  /* Footer */
-  footer {
-    margin-top: auto;
-    padding: 1rem;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.8);
-    text-align: center;
-    box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
-  }
-  
-  footer a {
-    color: #007BFF;
-    text-decoration: none;
-  }
-  
-  footer a:hover {
-    text-decoration: underline;
-  }
-  
+/* تنسيقات مخصصة وعامة */
+
+/* تأثير ظل النص الفخم للكلمة الرئيسية */
+.hero-text { 
+    text-shadow: 0 10px 40px rgba(0,0,0,0.9); 
+    letter-spacing: -0.05em; 
+}
+html:not(.dark) .hero-text { 
+    text-shadow: 0 10px 30px rgba(0,0,0,0.1); 
+} 
+
+/* كروت المشاريع */
+.project-card { 
+    overflow: hidden; 
+}
+.project-card img { 
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); 
+}
+.project-card:hover img { 
+    transform: scale(1.08); 
+}
+
+/* تدرجات ألوان للصور لتناسب الوضع المظلم والفاتح */
+.image-overlay { 
+    background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.6) 100%); 
+}
+html:not(.dark) .image-overlay { 
+    background: linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0.1) 100%); 
+}
+
+/* تصميم شريط التمرير (Scrollbar) */
+::-webkit-scrollbar { 
+    width: 6px; 
+}
+::-webkit-scrollbar-track { 
+    background: #e2e8f0; 
+}
+html.dark ::-webkit-scrollbar-track { 
+    background: #050505; 
+}
+::-webkit-scrollbar-thumb { 
+    background: #94a3b8; 
+    border-radius: 4px; 
+}
+html.dark ::-webkit-scrollbar-thumb { 
+    background: #333; 
+}
+::-webkit-scrollbar-thumb:hover { 
+    background: #64748b; 
+}
+html.dark ::-webkit-scrollbar-thumb:hover { 
+    background: #D4AF37; /* لون ذهبي خفيف للتمرير */
+}
+
+/* استثناءات للغة العربية (RTL) لضبط المسافات */
+html[dir="rtl"] .hero-text { 
+    letter-spacing: normal; 
+}
+html[dir="rtl"] .tracking-widest { 
+    letter-spacing: normal; 
+}
+html[dir="rtl"] .tracking-[0.2em], 
+html[dir="rtl"] .tracking-[0.3em] { 
+    letter-spacing: normal; 
+}
+
+/* حركة الخط السفلي لقوائم التنقل (Navigation) */
+.nav-link { 
+    position: relative; 
+}
+.nav-link::after {
+    content: ''; 
+    position: absolute; 
+    bottom: -4px; 
+    left: 50%; 
+    transform: translateX(-50%);
+    width: 0; 
+    height: 2px; 
+    background-color: currentColor; 
+    transition: width 0.3s ease;
+}
+.nav-link:hover::after { 
+    width: 100%; 
+}
