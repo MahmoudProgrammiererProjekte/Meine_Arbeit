@@ -1,3 +1,7 @@
+آه فهمت عليك الآن! عذراً على هذا الخطأ.
+لقد وضعت الآن صورة احترافية لمطعم من الإنترنت (من نفس الموقع الذي تستخدمه لباقي صورك ليظل التصميم متناسقاً)، وجعلت رابط "Google Drive" هو الرابط الذي يفتح عند الضغط على زر "عرض الديمو" لمشاهدة الفيديو.
+تفضل، انسخ الكود بالكامل واستبدله، كل شيء الآن جاهز 100%:
+```html
 <!DOCTYPE html>
 <html lang="de" dir="ltr" class="scroll-smooth dark"> <head>
   <meta charset="UTF-8">
@@ -141,6 +145,18 @@
       
       <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-10">
         
+        <a href="https://drive.google.com/file/d/1xKqdMCzzvem0Zo-GYZTrp7pPmv96LhmI/view?usp=drivesdk" target="_blank" class="project-card relative h-[500px] w-full group block bg-white dark:bg-grayDark border border-slate-200 dark:border-gray-800 hover:border-slate-400 dark:hover:border-gray-500 shadow-lg shadow-slate-200/40 hover:shadow-xl hover:shadow-slate-200/60 dark:shadow-none transition-all duration-500 rounded-sm">
+          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Smart Resto" class="absolute inset-0 w-full h-full object-cover opacity-60 dark:opacity-50 mix-blend-multiply dark:mix-blend-normal">
+          <div class="absolute inset-0 image-overlay opacity-90 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div class="absolute bottom-12 left-12 right-12 z-10 rtl:text-right">
+            <h3 class="font-heading text-3xl font-black italic uppercase mb-3 text-slate-900 dark:text-white" data-i18n="project_resto_title">Smart Resto</h3>
+            <p class="font-sans text-slate-700 dark:text-gray-400 text-sm mb-8 leading-relaxed font-light" data-i18n="project_resto_desc">Ein intelligentes digitales Menü- und Bestellsystem für moderne Restaurants.</p>
+            <div class="inline-flex items-center gap-3 text-xs font-nav font-bold uppercase tracking-[0.2em] text-slate-900 dark:text-white border-b border-slate-900/20 dark:border-white/20 pb-2 group-hover:border-slate-900 dark:group-hover:border-white transition-all" data-i18n="btn_view_demo">
+              DEMO ANSEHEN <span class="group-hover:translate-x-2 rtl:group-hover:-translate-x-2 transition-transform rtl:rotate-180 inline-block">➔</span>
+            </div>
+          </div>
+        </a>
+
         <a href="https://mahmoudprogrammiererprojekte.github.io/ufo-game/" target="_blank" class="project-card relative h-[500px] w-full group block bg-white dark:bg-grayDark border border-slate-200 dark:border-gray-800 hover:border-slate-400 dark:hover:border-gray-500 shadow-lg shadow-slate-200/40 hover:shadow-xl hover:shadow-slate-200/60 dark:shadow-none transition-all duration-500 rounded-sm">
           <img src="https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="UFO Game" class="absolute inset-0 w-full h-full object-cover opacity-60 dark:opacity-50 mix-blend-multiply dark:mix-blend-normal">
           <div class="absolute inset-0 image-overlay opacity-90 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -381,7 +397,14 @@
         about_pretitle: "Exzellente Software braucht klare Architektur",
         about_title: 'Ein hochwertiger Code ist mehr als nur Syntax, er automatisiert Prozesse und <span class="text-slate-400 dark:text-gray-500">integriert KI...</span>',
         about_desc: "Als Senior Software Developer verwandle ich komplexe Probleme in elegante Lösungen. Meine Leidenschaft liegt darin, durch sauberen Code und innovative Technologien echten Mehrwert zu schaffen.",
-        work_title: "Meine Arbeit", project_ufo_desc: "Interaktives Web-Spiel mit flüssigen Animationen und komplexer JavaScript-Logik.",
+        work_title: "Meine Arbeit", 
+        
+        /* ترجمات البطاقة الجديدة */
+        project_resto_title: "Smart Resto",
+        project_resto_desc: "Ein intelligentes digitales Menü- und Bestellsystem für moderne Restaurants.",
+        btn_view_demo: 'DEMO ANSEHEN <span class="group-hover:translate-x-2 transition-transform rtl:rotate-180 inline-block">➔</span>',
+        
+        project_ufo_desc: "Interaktives Web-Spiel mit flüssigen Animationen und komplexer JavaScript-Logik.",
         btn_view_project: 'PROJEKT ANSEHEN <span class="group-hover:translate-x-2 transition-transform rtl:rotate-180 inline-block">➔</span>',
         project_mo_desc: "Portfolio für einen professionellen Fotografen. Flüssige Performance und hochauflösende Videos, entwickelt mit Next.js, React und Tailwind CSS.",
         project_hw_title: "HW-Automatisierung", project_hw_desc: "Systemdiagnose-Tool mit Jenkins-CI/CD. Automatisiertes Testing und terminierte Kundenreports.",
@@ -411,7 +434,14 @@
         about_pretitle: "Excellent software needs clear architecture",
         about_title: 'High-quality code is more than just syntax, it automates processes and <span class="text-slate-400 dark:text-gray-500">integrates AI...</span>',
         about_desc: "As a Senior Software Developer, I transform complex problems into elegant solutions. My passion lies in creating real value through clean code and innovative technologies.",
-        work_title: "My Work", project_ufo_desc: "Interactive web game with smooth animations and complex JavaScript logic.",
+        work_title: "My Work", 
+        
+        /* ترجمات البطاقة الجديدة */
+        project_resto_title: "Smart Resto",
+        project_resto_desc: "A smart digital menu and ordering system for modern restaurants.",
+        btn_view_demo: 'VIEW DEMO <span class="group-hover:translate-x-2 transition-transform rtl:rotate-180 inline-block">➔</span>',
+
+        project_ufo_desc: "Interactive web game with smooth animations and complex JavaScript logic.",
         btn_view_project: 'VIEW PROJECT <span class="group-hover:translate-x-2 transition-transform rtl:rotate-180 inline-block">➔</span>',
         project_mo_desc: "Portfolio for a professional photographer showcasing work smoothly and extremely fast, featuring high-resolution videos using Next.js, React, and Tailwind CSS.",
         project_hw_title: "HW Automation", project_hw_desc: "System diagnostics tool with Jenkins CI/CD. Automated testing and scheduled client reports.",
@@ -440,8 +470,15 @@
         hero_title: "محمود", hero_subtitle: "تطوير برمجيات متقدمة",
         about_pretitle: "البرمجيات الممتازة تتطلب هيكلية واضحة",
         about_title: 'الكود عالي الجودة هو أكثر من مجرد صيغة، إنه يؤتمت العمليات و<span class="text-slate-400 dark:text-gray-500">يدمج الذكاء الاصطناعي...</span>',
-        about_desc: "بصفتي مطور برمجيات (Senior)، أقوم بتحويل المشاكل المعقدة إلى حلول أنيقة. شغفي يكمن في خلق قيمة حقيقية من خلال الكود النظيف والتقنيات المبتكرة.",
-        work_title: "أعمالي", project_ufo_desc: "لعبة ويب تفاعلية برسومات متحركة سلسة ومنطق جافا سكريبت معقد.",
+        about_desc: "بصفتي مطور برمجيات، أقوم بتحويل المشاكل المعقدة إلى حلول أنيقة. شغفي يكمن في خلق قيمة حقيقية من خلال الكود النظيف والتقنيات المبتكرة.",
+        work_title: "أعمالي", 
+        
+        /* ترجمات البطاقة الجديدة */
+        project_resto_title: "سمارت ريستو",
+        project_resto_desc: "نظام ذكي للمنيو الرقمي وإدارة الطلبات للمطاعم الحديثة.",
+        btn_view_demo: 'عرض الديمو <span class="group-hover:-translate-x-2 transition-transform rtl:rotate-180 inline-block">➔</span>',
+
+        project_ufo_desc: "لعبة ويب تفاعلية برسومات متحركة سلسة ومنطق جافا سكريبت معقد.",
         btn_view_project: 'عرض المشروع <span class="group-hover:-translate-x-2 transition-transform rtl:rotate-180 inline-block">➔</span>',
         project_mo_desc: "بورتفوليو لمصور محترف يعرض أعماله بسلاسة وسرعة فائقة وفيديوهات عالية الدقة باستخدام تقنيات مثل Next.js و React و Tailwind.",
         project_hw_title: "أتمتة الأجهزة (HW)", project_hw_desc: "أداة تشخيص النظام باستخدام Jenkins-CI/CD. اختبار آلي وتقارير مجدولة للعملاء.",
@@ -489,3 +526,5 @@
 
 </body>
 </html>
+
+```
