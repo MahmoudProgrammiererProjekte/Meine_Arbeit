@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="de" dir="ltr" class="scroll-smooth dark"> <head>
   <meta charset="UTF-8">
@@ -142,7 +141,7 @@
       
       <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-10">
         
-        <a href="https://drive.google.com/file/d/1xKqdMCzzvem0Zo-GYZTrp7pPmv96LhmI/view?usp=drivesdk" target="_blank" class="project-card relative h-[500px] w-full group block bg-white dark:bg-grayDark border border-slate-200 dark:border-gray-800 hover:border-slate-400 dark:hover:border-gray-500 shadow-lg shadow-slate-200/40 hover:shadow-xl hover:shadow-slate-200/60 dark:shadow-none transition-all duration-500 rounded-sm">
+        <a id="resto-link" href="https://smart-resto.pages.dev/menu/demo" target="_blank" class="project-card relative h-[500px] w-full group block bg-white dark:bg-grayDark border border-slate-200 dark:border-gray-800 hover:border-slate-400 dark:hover:border-gray-500 shadow-lg shadow-slate-200/40 hover:shadow-xl hover:shadow-slate-200/60 dark:shadow-none transition-all duration-500 rounded-sm">
           <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Smart Resto" class="absolute inset-0 w-full h-full object-cover opacity-60 dark:opacity-50 mix-blend-multiply dark:mix-blend-normal">
           <div class="absolute inset-0 image-overlay opacity-90 group-hover:opacity-100 transition-opacity duration-300"></div>
           <div class="absolute bottom-12 left-12 right-12 z-10 rtl:text-right">
@@ -396,9 +395,9 @@
         about_desc: "Als Senior Software Developer verwandle ich komplexe Probleme in elegante Lösungen. Meine Leidenschaft liegt darin, durch sauberen Code und innovative Technologien echten Mehrwert zu schaffen.",
         work_title: "Meine Arbeit", 
         
-        /* ترجمات البطاقة الجديدة */
         project_resto_title: "Smart Resto",
         project_resto_desc: "Ein intelligentes digitales Menü- und Bestellsystem für moderne Restaurants.",
+        project_resto_url: "https://smart-resto.pages.dev/menu/demo",
         btn_view_demo: 'DEMO ANSEHEN <span class="group-hover:translate-x-2 transition-transform rtl:rotate-180 inline-block">➔</span>',
         
         project_ufo_desc: "Interaktives Web-Spiel mit flüssigen Animationen und komplexer JavaScript-Logik.",
@@ -433,9 +432,9 @@
         about_desc: "As a Senior Software Developer, I transform complex problems into elegant solutions. My passion lies in creating real value through clean code and innovative technologies.",
         work_title: "My Work", 
         
-        /* ترجمات البطاقة الجديدة */
         project_resto_title: "Smart Resto",
         project_resto_desc: "A smart digital menu and ordering system for modern restaurants.",
+        project_resto_url: "https://smart-resto.pages.dev/menu/demo",
         btn_view_demo: 'VIEW DEMO <span class="group-hover:translate-x-2 transition-transform rtl:rotate-180 inline-block">➔</span>',
 
         project_ufo_desc: "Interactive web game with smooth animations and complex JavaScript logic.",
@@ -470,9 +469,9 @@
         about_desc: "بصفتي مطور برمجيات، أقوم بتحويل المشاكل المعقدة إلى حلول أنيقة. شغفي يكمن في خلق قيمة حقيقية من خلال الكود النظيف والتقنيات المبتكرة.",
         work_title: "أعمالي", 
         
-        /* ترجمات البطاقة الجديدة */
         project_resto_title: "سمارت ريستو",
         project_resto_desc: "نظام ذكي للمنيو الرقمي وإدارة الطلبات للمطاعم الحديثة.",
+        project_resto_url: "https://smart-resto.pages.dev/menu/demo",
         btn_view_demo: 'عرض الديمو <span class="group-hover:-translate-x-2 transition-transform rtl:rotate-180 inline-block">➔</span>',
 
         project_ufo_desc: "لعبة ويب تفاعلية برسومات متحركة سلسة ومنطق جافا سكريبت معقد.",
@@ -516,6 +515,11 @@
         const key = el.getAttribute('data-i18n');
         if (translations[lang] && translations[lang][key]) { el.innerHTML = translations[lang][key]; }
       });
+
+      const restoLink = document.getElementById('resto-link');
+      if (restoLink && translations[lang] && translations[lang].project_resto_url) {
+        restoLink.href = translations[lang].project_resto_url;
+      }
     }
 
     window.onload = () => { changeLanguage('de'); };
