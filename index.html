@@ -1,354 +1,519 @@
 <!DOCTYPE html>
-<html lang="de" dir="ltr" data-theme="aurora" data-next="sunset">
+<html lang="de" dir="ltr" class="scroll-smooth dark">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mahmoud | Premium Software Development</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preconnect" href="https://images.unsplash.com">
-<link rel="dns-prefetch" href="https://smart-resto.pages.dev"><link rel="dns-prefetch" href="https://brs-beton-kosmetik.pages.dev"><link rel="dns-prefetch" href="https://mahmoudprogrammiererprojekte.github.io"><link rel="dns-prefetch" href="https://github.com"><link rel="dns-prefetch" href="https://drive.google.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@300;400;500;600&family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<style>
-:root,[data-theme=aurora]{--bg:#07070d;--bg2:#0e0e1b;--nav:rgba(14,14,27,.9);--text:#f2f3f8;--muted:#9a9db3;--a1:#7c5cff;--a2:#22d3ee;--a3:#ff5ca8;--glow:rgba(124,92,255,.45);--card:rgba(255,255,255,.045);--cb:rgba(255,255,255,.1)}
-[data-theme=sunset]{--bg:#0f0708;--bg2:#1b0e10;--nav:rgba(27,14,16,.9);--text:#fff4ee;--muted:#c4a39b;--a1:#ff7a18;--a2:#ffc371;--a3:#ff3d77;--glow:rgba(255,122,24,.45);--card:rgba(255,255,255,.05);--cb:rgba(255,200,170,.12)}
-[data-theme=emerald]{--bg:#04100d;--bg2:#0a1c17;--nav:rgba(10,28,23,.9);--text:#eefcf6;--muted:#8fb5a8;--a1:#10b981;--a2:#38bdf8;--a3:#a3e635;--glow:rgba(16,185,129,.45);--cb:rgba(160,255,220,.11)}
-:root{--grad:linear-gradient(120deg,var(--a1),var(--a2));--w:min(80rem,92%)}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-tap-highlight-color:transparent}
-/* big screens: everything scales proportionally (all sizes are in rem) */
-@media(min-width:1440px){html{font-size:106.25%}}
-@media(min-width:1700px){html{font-size:118%}}
-@media(min-width:2100px){html{font-size:134%}}
-@media(min-width:2800px){html{font-size:165%}}
-body{font-family:'Inter','Cairo',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
-html[dir=rtl] body{font-family:'Cairo','Inter',sans-serif}
-a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
-.container{width:var(--w);margin-inline:auto}
-h1,h2,h3,h4{font-family:'Space Grotesk','Cairo',sans-serif}
-::-webkit-scrollbar{width:8px}::-webkit-scrollbar-thumb{background:var(--a1);border-radius:8px}::-webkit-scrollbar-track{background:var(--bg)}
-.gt{background:var(--gi,var(--grad));-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
-/* background */
-.bg{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
-.bg::after{content:'';position:absolute;inset:0;background-image:linear-gradient(var(--cb) 1px,transparent 1px),linear-gradient(90deg,var(--cb) 1px,transparent 1px);background-size:3.75rem 3.75rem;-webkit-mask-image:radial-gradient(ellipse at 50% 20%,#000 20%,transparent 70%);mask-image:radial-gradient(ellipse at 50% 20%,#000 20%,transparent 70%);opacity:.5}
-.bg i{position:absolute;border-radius:50%;will-change:transform;animation:fl 18s ease-in-out infinite}
-.bg i:nth-child(1){width:56.25rem;height:56.25rem;top:-23.75rem;inset-inline-start:-23.75rem;background:radial-gradient(circle,var(--a1) 25%,transparent 68%);opacity:.38}
-.bg i:nth-child(2){width:51.25rem;height:51.25rem;top:25%;inset-inline-end:-25rem;background:radial-gradient(circle,var(--a2) 25%,transparent 68%);opacity:.36;animation-delay:-6s}
-.bg i:nth-child(3){width:47.5rem;height:47.5rem;bottom:-23.75rem;inset-inline-start:20%;background:radial-gradient(circle,var(--a3) 25%,transparent 68%);opacity:.24;animation-delay:-12s}
-@keyframes fl{50%{transform:translate3d(2.5rem,-3.125rem,0) scale(1.12)}}
-/* nav */
-nav{position:fixed;top:1rem;left:0;right:0;z-index:50}
-.nav-in{width:var(--w);margin-inline:auto;display:flex;align-items:center;justify-content:space-between;padding:.625rem .875rem .625rem 1.375rem;background:var(--nav);border:1px solid var(--cb);border-radius:999px;box-shadow:0 .625rem 1.875rem rgba(0,0,0,.35)}
-html[dir=rtl] .nav-in{padding:.625rem 1.375rem .625rem .875rem}
-.logo{font:700 1.25rem 'Space Grotesk',sans-serif;letter-spacing:-.02em}
-.links{display:none;align-items:center;gap:.375rem}.nav-right{display:flex;align-items:center;gap:.625rem}
-.l{padding:.5rem 1rem;border-radius:999px;font-size:.9rem;color:var(--muted);transition:color .2s,background .2s}.l:hover{color:var(--text);background:var(--cb)}
-.btn-c{padding:.5625rem 1.25rem;border-radius:999px;background:var(--grad);color:#fff;font-weight:600;font-size:.9rem;transition:transform .2s}.btn-c:hover{transform:translateY(-2px)}
-.lang{display:flex;gap:2px;padding:.1875rem;border:1px solid var(--cb);border-radius:999px;margin-inline:.5rem}
-.lang button{font-size:.72rem;font-weight:600;padding:.3125rem .625rem;border-radius:999px;color:var(--muted)}.lang .active{background:var(--text);color:var(--bg)}
-.color-btn{width:2.625rem;height:2.625rem;border-radius:50%;padding:.1875rem;background:var(--grad);transition:transform .35s}.color-btn:hover{transform:rotate(90deg) scale(1.1)}
-.sw{width:100%;height:100%;border-radius:50%;display:grid;place-items:center;font-size:.9rem;color:#fff}
-[data-next=aurora] .sw{background:linear-gradient(135deg,#7c5cff,#22d3ee 60%,#ff5ca8)}[data-next=sunset] .sw{background:linear-gradient(135deg,#ff7a18,#ffc371 55%,#ff3d77)}[data-next=emerald] .sw{background:linear-gradient(135deg,#10b981,#38bdf8 60%,#a3e635)}
-.burger{display:grid;width:2.375rem;height:2.375rem;border-radius:50%;border:1px solid var(--cb);place-items:center}
-.mobile{display:none}.mobile .lang{margin-top:.625rem}
-.mobile.open{display:flex;flex-direction:column;align-items:center;gap:.375rem;width:var(--w);margin:.625rem auto 0;padding:1.25rem;background:var(--bg2);border:1px solid var(--cb);border-radius:1.5rem}.mobile .l{padding:.625rem;font-size:1rem}
-/* hero */
-.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:8.75rem 0 5rem;position:relative}
-.hero-card{display:none}
-.pill{display:inline-flex;align-items:center;gap:.625rem;padding:.5rem 1.125rem;border:1px solid var(--cb);background:var(--card);border-radius:999px;font-size:.82rem;color:var(--muted);margin-bottom:1.75rem}
-.dot{width:.5rem;height:.5rem;border-radius:50%;background:#22c55e;animation:bl 2s infinite}@keyframes bl{50%{opacity:.35}}
-.hero h1{--gi:linear-gradient(120deg,var(--text) 10%,var(--a1) 50%,var(--a2) 90%);background-size:200% auto;animation:shine 8s linear infinite;font-size:clamp(3.6rem,15vw,11rem);line-height:.95;letter-spacing:-.05em;font-weight:700}
-.hero.off :is(h1,.term,.fchip){animation-play-state:paused}@keyframes shine{to{background-position:200% center}}
-html[dir=rtl] .hero h1{font-family:'Cairo',sans-serif;font-weight:900}
-.sub{margin-top:1.375rem;font-size:clamp(.85rem,2vw,1.05rem);letter-spacing:.35em;text-transform:uppercase;color:var(--muted)}
-.cta{margin-top:2.5rem;display:flex;gap:.875rem;justify-content:center;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:.625rem;padding:.9375rem 1.875rem;border-radius:999px;font-weight:600;font-size:.95rem;transition:transform .25s,border-color .25s}.btn:hover{transform:translateY(-3px)}
-.btn-wa{background:#25D366;color:#fff;box-shadow:0 .625rem 1.875rem rgba(37,211,102,.35)}
-.btn-ghost{border:1px solid var(--cb);background:var(--card)}.btn-ghost:hover{border-color:var(--a1)}
-.stats{margin-top:4.375rem;display:flex;justify-content:center;gap:clamp(1.25rem,6vw,4.375rem);flex-wrap:wrap}
-.stat b{display:block;font:700 2rem 'Space Grotesk'}.stat span{font-size:.8rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
-.scroll-ind{position:absolute;bottom:1.875rem;left:50%;transform:translateX(-50%);width:1.5rem;height:2.5rem;border:2px solid var(--cb);border-radius:.875rem}
-.scroll-ind::after{content:'';position:absolute;top:.4375rem;left:50%;width:.25rem;height:.5rem;margin-left:-.125rem;background:var(--a2);border-radius:.25rem;animation:sc 1.8s infinite}
-@keyframes sc{to{opacity:0;transform:translateY(.875rem)}}
-/* hero code card (desktop only) */
-.term{position:relative;z-index:1;border-radius:1.5rem;background:var(--bg2);border:1px solid var(--cb);box-shadow:0 0 6rem -1rem var(--glow),0 2rem 4rem rgba(0,0,0,.4);overflow:hidden;direction:ltr;text-align:left;animation:fy 7s ease-in-out infinite}
-.term-h{display:flex;align-items:center;gap:.5rem;padding:1rem 1.25rem;border-bottom:1px solid var(--cb)}
-.term-h span{width:.75rem;height:.75rem;border-radius:50%;background:#ff5f57}.term-h span:nth-child(2){background:#febc2e}.term-h span:nth-child(3){background:#28c840}
-.term-h em{margin-inline-start:.75rem;font-style:normal;font-size:.8rem;color:var(--muted);font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
-.term pre{padding:1.75rem 1.75rem 2rem;font:500 clamp(.85rem,1.05vw,1rem)/1.9 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap;color:var(--text)}
-.term .k{color:var(--a3)}.term .p{color:var(--a1)}.term .s{color:var(--a2)}
-[data-theme=aurora] .term .p{color:#a78bfa}
-.hero-card{position:relative;isolation:isolate}
-.hero-card::before{content:'';position:absolute;inset:-20%;background:radial-gradient(circle,var(--a1),transparent 65%);opacity:.22;z-index:-1}
-.fchip{position:absolute;z-index:2;display:flex;align-items:center;gap:.625rem;padding:.625rem 1.125rem;border-radius:999px;background:var(--bg2);border:1px solid var(--cb);font-weight:600;font-size:.85rem;box-shadow:0 1rem 2rem rgba(0,0,0,.4);direction:ltr}
-.fchip i{color:var(--a2);font-size:1.1rem}
-.fc1{top:-1.5rem;right:-1rem;animation:fy 5s ease-in-out infinite -2s}.fc2{bottom:-1.5rem;left:-1.5rem;animation:fy 6s ease-in-out infinite -4s}
-@keyframes fy{50%{transform:translateY(-.75rem)}}
-/* sections */
-section{padding:6.875rem 0}
-.eyebrow{display:inline-block;font-size:.78rem;letter-spacing:.25em;text-transform:uppercase;color:var(--a2);font-weight:600;margin-bottom:1rem}
-.sec-title{font-size:clamp(2rem,4.5vw,3.4rem);line-height:1.1;letter-spacing:-.03em;font-weight:700}.mut{color:var(--muted)}
-.head-c{text-align:center;margin-bottom:4rem}
-html[dir=rtl] :is(.hero h1,.sub,.eyebrow,.sec-title,.more,.org,.cta-box h2){letter-spacing:0}
-html[dir=rtl] :is(.sec-title,.cta-box h2){line-height:1.35}
-.about{display:grid;grid-template-columns:1fr;gap:3.125rem;align-items:center}
-.photo{aspect-ratio:4/5;max-width:23.75rem;margin-inline:auto;border-radius:1.75rem;padding:.1875rem;background:linear-gradient(140deg,var(--a1),var(--a2),var(--a3));box-shadow:0 0 5rem -.625rem var(--glow)}
-.photo img{width:100%;height:100%;object-fit:cover;border-radius:1.5625rem;background:var(--bg2);display:block}
-.desc{margin-top:1.625rem;font-size:1.1rem;color:var(--muted);font-weight:300;max-width:40rem}
-.chips{display:flex;gap:.75rem;margin-top:2.125rem;flex-wrap:wrap}
-.chip{display:flex;align-items:center;gap:.625rem;padding:.75rem 1.25rem;border-radius:1rem;background:var(--card);border:1px solid var(--cb);font-size:.88rem;font-weight:500}.chip i{color:var(--a2)}
-/* projects */
-.projects{display:grid;grid-template-columns:1fr;gap:1.625rem}
-.card{position:relative;display:flex;flex-direction:column;border-radius:1.625rem;background:var(--card);border:1px solid var(--cb);overflow:hidden;isolation:isolate;transition:transform .4s,box-shadow .4s}
-@media(hover:hover){.card:hover{transform:translateY(-.625rem);border-color:transparent;background:linear-gradient(var(--bg2),var(--bg2)) padding-box,linear-gradient(140deg,var(--a1),var(--a2),var(--a3)) border-box;box-shadow:0 1.875rem 4.375rem var(--glow)}.card:hover .thumb img{transform:scale(1.1)}.card:hover .arr{transform:translateX(.375rem)}html[dir=rtl] .card:hover .arr{transform:scaleX(-1) translateX(.375rem)}}
-.thumb{height:13.125rem;overflow:hidden;position:relative}
-.thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s}
-.thumb::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,var(--bg2),transparent 70%)}
-.num{position:absolute;top:1rem;inset-inline-start:1.125rem;z-index:2;font:700 .8rem 'Space Grotesk';padding:.3125rem .75rem;border-radius:999px;background:rgba(0,0,0,.55);color:#fff}
-.body{padding:.5rem 1.75rem 1.875rem;display:flex;flex-direction:column;flex:1}
-.body h3{font-size:1.6rem;letter-spacing:-.02em;margin-bottom:.625rem}.body p{color:var(--muted);font-size:.93rem;font-weight:300;flex:1}
-.tags{display:flex;gap:.5rem;flex-wrap:wrap;margin:1.125rem 0 1.375rem}.tags span{font-size:.7rem;font-weight:600;padding:.3125rem .75rem;border-radius:999px;background:var(--cb);letter-spacing:.04em}
-.more{display:inline-flex;align-items:center;gap:.625rem;font-size:.78rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--a2)}
-.arr{display:inline-block;transition:transform .3s}html[dir=rtl] .arr{transform:scaleX(-1)}
-/* experience */
-.exp-wrap{width:min(53.75rem,92%);margin-inline:auto}
-.timeline{margin-top:2.75rem;position:relative;padding-inline-start:2.125rem}
-.timeline::before{content:'';position:absolute;inset-inline-start:.4375rem;top:.5rem;bottom:.5rem;width:2px;background:linear-gradient(var(--a1),var(--a2),transparent)}
-.job{position:relative;margin-bottom:2.75rem;padding:1.625rem 1.75rem;border-radius:1.375rem;background:var(--card);border:1px solid var(--cb)}
-.job::before{content:'';position:absolute;inset-inline-start:-2.125rem;top:1.875rem;width:1rem;height:1rem;border-radius:50%;background:var(--bg);border:3px solid var(--a2)}
-.job h3{font-size:1.25rem;margin-bottom:.25rem}.org{font-size:.76rem;letter-spacing:.15em;text-transform:uppercase;color:var(--a2);font-weight:600;margin-bottom:.875rem}
-.job ul{list-style:none;display:grid;gap:.5rem}.job li{color:var(--muted);font-size:.93rem;font-weight:300}
-/* tech */
-.stack{display:grid;grid-template-columns:1fr;gap:1.375rem}
-.sg{padding:1.75rem;border-radius:1.5rem;background:var(--card);border:1px solid var(--cb);transition:transform .35s,border-color .35s,box-shadow .35s}
-@media(hover:hover){.sg:hover{border-color:var(--a1);box-shadow:0 1.125rem 3.125rem var(--glow);transform:translateY(-.3125rem)}.tech:hover{transform:translateY(-3px);border-color:var(--a2)}}
-.sg h4{display:flex;align-items:center;gap:.75rem;font-size:1.05rem;margin-bottom:1.25rem}
-.sg h4 i{width:2.375rem;height:2.375rem;border-radius:.75rem;display:grid;place-items:center;background:var(--grad);color:#fff;font-size:.95rem}
-.pills{display:flex;flex-wrap:wrap;gap:.625rem}
-.tech{display:flex;align-items:center;gap:.625rem;padding:.5625rem .875rem;border-radius:.875rem;background:var(--bg2);border:1px solid var(--cb);transition:transform .25s,border-color .25s}
-.tech i{font-size:1.1rem;color:var(--a2);width:1.25rem;text-align:center}.tech b{display:block;font-size:.82rem;font-weight:600;line-height:1.2}.tech small{display:block;font-size:.66rem;color:var(--muted);line-height:1.2;margin-top:.125rem}
-/* contact */
-.cta-box{position:relative;border-radius:2.25rem;padding:clamp(2.5rem,7vw,5.625rem) 1.875rem;text-align:center;background:var(--card);border:1px solid var(--cb);overflow:hidden}
-.cta-box::before{content:'';position:absolute;width:47.5rem;height:47.5rem;top:-31.25rem;left:50%;margin-left:-23.75rem;background:radial-gradient(circle,var(--a1) 20%,transparent 66%);opacity:.3}
-.cta-box>*{position:relative}.cta-box h2{font-size:clamp(2.4rem,7vw,5rem);letter-spacing:-.04em;line-height:1;margin-bottom:2.875rem;font-weight:700}
-.contacts{display:grid;grid-template-columns:1fr;gap:1.125rem;max-width:56.25rem;margin:0 auto}
-.ct{padding:1.625rem 1.125rem;border-radius:1.375rem;background:var(--bg2);border:1px solid var(--cb);display:flex;flex-direction:column;align-items:center;gap:.625rem;word-break:break-word;transition:transform .3s,border-color .3s}
-@media(hover:hover){.ct:hover{transform:translateY(-.375rem);border-color:var(--a1)}}
-.ct i{font-size:1.5rem}.ct.wa i{background:none;color:#25D366;-webkit-text-fill-color:#25D366}
-.ct small{font-size:.68rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted)}.ct a{font-size:.9rem;font-weight:500}
-footer{padding:2.125rem 0 3.125rem}
-.foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.125rem;padding-top:1.75rem;border-top:1px solid var(--cb);font-size:.78rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
-.foot div{display:flex;gap:1.625rem}.foot button:hover{color:var(--text)}
-.wa-float{position:fixed;bottom:1.5rem;inset-inline-end:1.5rem;z-index:60;width:3.75rem;height:3.75rem;border-radius:50%;background:#25D366;color:#fff;display:grid;place-items:center;font-size:1.9rem;box-shadow:0 .625rem 1.875rem rgba(37,211,102,.5);transition:transform .25s}.wa-float:hover{transform:scale(1.12)}
-.wa-float::after{content:'';position:absolute;inset:0;border-radius:50%;border:2px solid #25D366;animation:pl 2.2s infinite}@keyframes pl{to{transform:scale(1.6);opacity:0}}
-.modal{display:none;position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.75);align-items:center;justify-content:center;padding:1.25rem}.modal.open{display:flex}
-.m-box{position:relative;width:min(40rem,100%);max-height:80vh;overflow-y:auto;background:var(--bg2);border:1px solid var(--cb);border-radius:1.5rem;padding:2.25rem}
-.m-box h2{font-size:1.4rem;margin-bottom:1.25rem;padding-bottom:1rem;border-bottom:1px solid var(--cb)}.t{font-size:.9rem;color:var(--muted);font-weight:300}.t p{margin-bottom:.75rem}
-.m-x{position:absolute;top:1rem;inset-inline-end:1.25rem;font-size:1.8rem;color:var(--muted);line-height:1}
-.rv{opacity:0;transform:translateY(2.125rem);transition:opacity .8s,transform .8s}.rv.in{opacity:1;transform:none}.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="page_title">Mahmoud | Premium Software Development</title>
 
-/* ===== phones: no blob animation (as before) ===== */
-@media(max-width:1023px){.bg i{animation:none}}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:ital,wght@0,400;0,700;1,800;1,900&family=Cairo:wght@400;600;700;900&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
-/* ===== tablet 768+ ===== */
-@media(min-width:768px){
-  .projects,.stack{grid-template-columns:repeat(2,1fr)}
-  .about{grid-template-columns:5fr 7fr;gap:3rem}
-  .photo{max-width:none;margin-inline:0}
-}
-/* ===== small laptop 901+ ===== */
-@media(min-width:901px){.contacts{grid-template-columns:repeat(3,1fr)}}
-/* ===== laptop / desktop 1024+: full nav ===== */
-@media(min-width:1024px){
-  .links{display:flex}.nav-right,.mobile.open{display:none}
-  .nav-in{padding:.625rem .875rem .625rem 1.5rem}html[dir=rtl] .nav-in{padding:.625rem 1.5rem .625rem .875rem}
-}
-/* ===== laptop / desktop 1100+: fill the screen ===== */
-@media(min-width:1100px){
-  .hero{text-align:start;padding:8.5rem 0 4.5rem}
-  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:4rem;align-items:center}
-  .hero h1{font-size:clamp(4.5rem,9vw,10.5rem)}
-  .cta,.stats{justify-content:flex-start}
-  .stats{margin-top:3.75rem}
-  .hero-card{display:block}
-  .projects,.stack{grid-template-columns:repeat(3,1fr);gap:1.75rem}
-  .about{gap:5rem}
-  .desc{font-size:1.2rem}
-  .exp-wrap{width:var(--w)}
-  .timeline{display:grid;grid-template-columns:1fr 1fr;gap:1.75rem;padding-inline-start:0;margin-top:3.5rem}
-  .timeline::before,.job::before{display:none}
-  .job{margin:0;padding:2rem 2.25rem;border-top:3px solid var(--a1)}.job:nth-child(2){border-top-color:var(--a2)}
-  .contacts{max-width:60rem}
-}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
-</style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'Cairo', 'sans-serif'],
+            heading: ['Montserrat', 'Cairo', 'sans-serif'],
+            nav: ['Poppins', 'Cairo', 'sans-serif'],
+          },
+          colors: {
+            brand: '#ffffff',
+            dark: '#0a0a0a',
+            grayDark: '#111111',
+            lightBg: '#F8F9FA'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .hero-text { text-shadow: 0 10px 40px rgba(0,0,0,0.9); letter-spacing: -0.05em; }
+    html:not(.dark) .hero-text { text-shadow: 0 10px 30px rgba(255,255,255,0.8); }
+
+    .project-card { overflow: hidden; }
+    .project-card img { transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
+    .project-card:hover img { transform: scale(1.08); }
+
+    .image-overlay { background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.6) 100%); }
+    html:not(.dark) .image-overlay { background: linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0.1) 100%); }
+
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #e2e8f0; }
+    html.dark ::-webkit-scrollbar-track { background: #0a0a0a; }
+    ::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 4px; }
+    html.dark ::-webkit-scrollbar-thumb { background: #333; }
+    ::-webkit-scrollbar-thumb:hover { background: #64748b; }
+    html.dark ::-webkit-scrollbar-thumb:hover { background: #555; }
+
+    html[dir="rtl"] .hero-text { letter-spacing: normal; }
+    html[dir="rtl"] .tracking-widest { letter-spacing: normal; }
+    html[dir="rtl"] .tracking-[0.2em], html[dir="rtl"] .tracking-[0.3em] { letter-spacing: normal; }
+
+    .nav-link { position: relative; }
+    .nav-link::after {
+      content: ''; position: absolute; bottom: -4px; left: 50%; transform: translateX(-50%);
+      width: 0; height: 2px; background-color: currentColor; transition: width 0.3s ease;
+    }
+    .nav-link:hover::after { width: 100%; }
+  </style>
 </head>
-<body>
-<div class="bg"><i></i><i></i><i></i></div>
-<a href="https://wa.me/4915252690273" target="_blank" rel="noopener noreferrer" class="wa-float" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-<nav><div class="nav-in"><a href="#home" class="logo">Mahmoud<span class="gt">.</span></a><div class="links" id="links"></div><div class="nav-right" id="nr"></div></div><div class="mobile" id="mobile"></div></nav>
+<body class="font-sans antialiased selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black relative bg-lightBg text-gray-800 dark:bg-[#0a0a0a] dark:text-white transition-colors duration-500">
 
-<header id="home" class="hero">
-  <div class="container hero-grid">
-    <div class="hero-text">
-      <div class="pill rv"><span class="dot"></span><span data-i18n="hero_badge">Verfügbar für neue Projekte</span></div>
-      <h1 class="gt rv d1" data-i18n="hero_title">MAHMOUD</h1>
-      <p class="sub rv d2" data-i18n="hero_subtitle">Premium Software Development</p>
-      <div class="cta rv d3">
-        <a href="https://wa.me/4915252690273" target="_blank" rel="noopener noreferrer" class="btn btn-wa"><i class="fa-brands fa-whatsapp"></i><span data-i18n="hero_whatsapp_btn">WhatsApp Direktkontakt</span></a>
-        <a href="#work" class="btn btn-ghost"><span data-i18n="hero_work_btn">Projekte ansehen</span><i class="fa-solid fa-arrow-down"></i></a>
+  <nav class="fixed w-full z-50 bg-white/80 dark:bg-black/80 backdrop-blur-md border-b border-gray-200/50 dark:border-white/10 transition-all duration-300 py-5 shadow-sm dark:shadow-none">
+    <div class="w-full px-6 md:px-16 lg:px-24 mx-auto flex justify-between items-center">
+      <a href="#" class="font-heading font-black italic text-2xl tracking-tighter uppercase text-slate-900 dark:text-white">
+        Mahmoud<span class="text-slate-400 dark:text-gray-500">.</span>
+      </a>
+
+      <div class="flex md:hidden items-center gap-4">
+        <button onclick="toggleTheme()" class="text-xl text-slate-600 dark:text-gray-300 focus:outline-none transition-transform hover:scale-110" id="theme-btn-mobile">🌙</button>
+        <button id="mobile-menu-btn" class="text-slate-800 dark:text-white focus:outline-none text-2xl">☰</button>
       </div>
-      <div class="stats rv d3">
-        <div class="stat"><b class="gt">6+</b><span data-i18n="stat_projects">Projekte</span></div>
-        <div class="stat"><b class="gt">35+</b><span data-i18n="stat_tech">Technologien</span></div>
-        <div class="stat"><b class="gt">3</b><span data-i18n="stat_lang">Sprachen</span></div>
+
+      <div class="hidden md:flex items-center space-x-8 rtl:space-x-reverse text-[13px] font-nav font-medium tracking-[0.15em] uppercase text-slate-500 dark:text-gray-300">
+        <a href="#home" class="nav-link hover:text-slate-900 dark:hover:text-white transition-colors" data-i18n="nav_home">Home</a>
+        <a href="#about" class="nav-link hover:text-slate-900 dark:hover:text-white transition-colors" data-i18n="nav_about">Über Mich</a>
+        <a href="#work" class="nav-link hover:text-slate-900 dark:hover:text-white transition-colors" data-i18n="nav_work">Meine Arbeit</a>
+        <a href="#contact" class="px-6 py-2.5 bg-slate-900 text-white dark:bg-transparent dark:text-white dark:border dark:border-gray-500 rounded-sm hover:bg-slate-700 dark:hover:bg-white dark:hover:text-black dark:hover:border-white transition-all duration-300 shadow-md hover:shadow-lg dark:shadow-none" data-i18n="nav_contact">Kontakt</a>
+
+        <div class="flex items-center gap-2 border-l border-slate-300 dark:border-gray-700 pl-6 rtl:border-l-0 rtl:border-r rtl:pl-0 rtl:pr-6">
+          <button onclick="changeLanguage('de')" class="hover:text-slate-900 dark:hover:text-white transition-colors text-xs" id="btn-de">DE</button>
+          <span class="text-slate-300 dark:text-gray-700">|</span>
+          <button onclick="changeLanguage('en')" class="hover:text-slate-900 dark:hover:text-white transition-colors text-xs" id="btn-en">EN</button>
+          <span class="text-slate-300 dark:text-gray-700">|</span>
+          <button onclick="changeLanguage('ar')" class="hover:text-slate-900 dark:hover:text-white transition-colors text-xs" id="btn-ar">AR</button>
+        </div>
+
+        <button onclick="toggleTheme()" class="hover:text-slate-900 dark:hover:text-white transition-transform hover:scale-110 text-lg" id="theme-btn-desktop">🌙</button>
       </div>
     </div>
-    <div class="hero-card rv d2" aria-hidden="true">
-      <div class="fchip fc1"><i class="fa-brands fa-react"></i>Next.js</div>
-      <div class="term">
-        <div class="term-h"><span></span><span></span><span></span><em>mahmoud.ts</em></div>
-<pre><span class="k">const</span> <span class="p">mahmoud</span> = {
-  <span class="p">role</span>: <span class="s">"Software Developer"</span>,
-  <span class="p">stack</span>: [<span class="s">"Python"</span>, <span class="s">"Next.js"</span>, <span class="s">"Supabase"</span>],
-  <span class="p">focus</span>: [<span class="s">"AI"</span>, <span class="s">"Automation"</span>],
-  <span class="p">available</span>: <span class="k">true</span>
-};</pre>
+
+    <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white dark:bg-black border-b border-gray-200 dark:border-gray-800 flex-col items-center py-6 space-y-5 text-sm font-nav font-medium tracking-[0.15em] uppercase text-slate-600 dark:text-gray-300 shadow-xl">
+      <a href="#home" class="hover:text-slate-900 dark:hover:text-white transition" data-i18n="nav_home">Home</a>
+      <a href="#about" class="hover:text-slate-900 dark:hover:text-white transition" data-i18n="nav_about">Über Mich</a>
+      <a href="#work" class="hover:text-slate-900 dark:hover:text-white transition" data-i18n="nav_work">Meine Arbeit</a>
+      <a href="#contact" class="px-6 py-2 bg-slate-900 text-white dark:bg-transparent dark:text-white border border-transparent dark:border-gray-500 rounded-sm hover:bg-slate-800 dark:hover:bg-white dark:hover:text-black transition-all duration-300" data-i18n="nav_contact">Kontakt</a>
+
+      <div class="flex items-center gap-4 pt-4 border-t border-gray-100 dark:border-gray-800 w-1/2 justify-center">
+        <button onclick="changeLanguage('de')" class="hover:text-slate-900 dark:hover:text-white transition text-xs" id="btn-de-mob">DE</button>
+        <span class="text-gray-300 dark:text-gray-700">|</span>
+        <button onclick="changeLanguage('en')" class="hover:text-slate-900 dark:hover:text-white transition text-xs" id="btn-en-mob">EN</button>
+        <span class="text-gray-300 dark:text-gray-700">|</span>
+        <button onclick="changeLanguage('ar')" class="hover:text-slate-900 dark:hover:text-white transition text-xs" id="btn-ar-mob">AR</button>
       </div>
-      <div class="fchip fc2"><i class="fa-brands fa-python"></i>Python</div>
+    </div>
+  </nav>
+
+  <header id="home" class="relative h-screen flex items-center justify-center overflow-hidden w-full">
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop" alt="Premium Background" class="w-full h-full object-cover opacity-20 dark:opacity-40 mix-blend-overlay dark:mix-blend-screen">
+      <div class="absolute inset-0 bg-gradient-to-b from-white/60 via-lightBg/80 to-lightBg dark:from-black/70 dark:via-black/90 dark:to-[#0a0a0a]"></div>
+    </div>
+    <div class="relative z-10 text-center px-4 w-full mt-20">
+      <h1 class="font-heading font-black italic uppercase hero-text text-6xl md:text-[9rem] lg:text-[11rem] leading-none mb-4 text-slate-900 dark:text-white drop-shadow-2xl" data-i18n="hero_title">MAHMOUD</h1>
+      <p class="font-nav font-medium tracking-[0.3em] uppercase text-xs md:text-sm text-slate-600 dark:text-gray-400 mt-4 font-semibold" data-i18n="hero_subtitle">Premium Software Development</p>
+    </div>
+  </header>
+
+  <main class="w-full">
+    <section id="about" class="py-32 px-6 md:px-16 lg:px-24 w-full mx-auto flex flex-col md:flex-row items-center gap-16">
+      <div class="w-full md:w-5/12 xl:w-4/12 flex justify-center">
+        <div class="relative w-full max-w-lg group rounded-md overflow-hidden shadow-2xl shadow-slate-300/60 dark:shadow-black/80 ring-1 ring-slate-200 dark:ring-white/10">
+          <img src="IMG_8230.jpeg" alt="Mahmoud Portrait" class="relative z-10 block w-full h-auto object-contain transition duration-700 ease-out group-hover:scale-105 bg-slate-200 dark:bg-gray-900">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-20"></div>
+        </div>
+      </div>
+      <div class="w-full md:w-7/12 xl:w-8/12 text-left rtl:text-right">
+        <h4 class="text-xs md:text-sm tracking-[0.2em] text-slate-500 uppercase mb-6 font-nav font-semibold" data-i18n="about_pretitle">Exzellente Software braucht klare Architektur</h4>
+        <h2 class="font-heading text-3xl md:text-5xl font-bold italic leading-tight mb-8 text-slate-800 dark:text-white" data-i18n="about_title">Ein hochwertiger Code ist mehr als nur Syntax, er automatisiert Prozesse und <span class="text-slate-400 dark:text-gray-500">integriert KI...</span></h2>
+        <p class="font-sans text-slate-600 dark:text-gray-400 text-lg leading-relaxed max-w-3xl font-light" data-i18n="about_desc">Software Developer mit Schwerpunkt auf Web-Anwendungen, Automatisierung und KI. In meiner Ausbildung zum Fachinformatiker für Anwendungsentwicklung bei AVL in Regensburg arbeite ich mit Git, Prozessautomatisierung und Webentwicklung. Daneben entwickle ich eigene Projekte mit Next.js, Supabase und Python, vom digitalen Restaurant-Menü bis zur CI/CD-Pipeline.</p>
+      </div>
+    </section>
+
+    <section id="work" class="py-20 px-6 md:px-16 lg:px-24 w-full mx-auto border-t border-slate-200 dark:border-gray-900 pt-32">
+      <h2 class="text-center font-heading text-4xl font-black italic uppercase mb-20 tracking-widest text-slate-800 dark:text-gray-300" data-i18n="work_title">Meine Arbeit</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-10">
+
+        <a id="resto-link" href="https://smart-resto.pages.dev/menu/demo" target="_blank" class="project-card relative h-[500px] w-full group block bg-white dark:bg-grayDark border border-slate-200 dark:border-gray-800 hover:border-slate-400 dark:hover:border-gray-500 shadow-lg shadow-slate-200/40 hover:shadow-xl hover:shadow-slate-200/60 dark:shadow-none transition-all duration-500 rounded-sm">
+          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Smart Resto" class="absolute inset-0 w-full h-full object-cover opacity-60 dark:opacity-50 mix-blend-multiply dark:mix-blend-normal">
+          <div class="absolute inset-0 image-overlay opacity-90 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div class="absolute bottom-12 left-12 right-12 z-10 rtl:text-right">
+            <h3 class="font-heading text-3xl font-black italic uppercase mb-3 text-slate-900 dark:text-white" data-i18n="project_resto_title">Smart Resto</h3>
+            <p class="font-sans text-slate-700 dark:text-gray-400 text-sm mb-8 leading-relaxed font-light" data-i18n="project_resto_desc">Ein intelligentes digitales Menü- und Bestellsystem für moderne Restaurants.</p>
+            <div class="inline-flex items-center gap-3 text-xs font-nav font-bold uppercase tracking-[0.2em] text-slate-900 dark:text-white border-b border-slate-900/20 dark:border-white/20 pb-2 group-hover:border-slate-900 dark:group-hover:border-white transition-all" data-i18n="btn_view_demo">
+              DEMO ANSEHEN <span class="group-hover:translate-x-2 rtl:group-hover:-translate-x-2 transition-transform rtl:rotate-180 inline-block">➔</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://mahmoudprogrammiererprojekte.github.io/ufo-game/" target="_blank" class="project-card relative h-[500px] w-full group block bg-white dark:bg-grayDark border border-slate-200 dark:border-gray-800 hover:border-slate-400 dark:hover:border-gray-500 shadow-lg shadow-slate-200/40 hover:shadow-xl hover:shadow-slate-200/60 dark:shadow-none transition-all duration-500 rounded-sm">
+          <img src="https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="UFO Game" class="absolute inset-0 w-full h-full object-cover opacity-60 dark:opacity-50 mix-blend-multiply dark:mix-blend-normal">
+          <div class="absolute inset-0 image-overlay opacity-90 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div class="absolute bottom-12 left-12 right-12 z-10 rtl:text-right">
+            <h3 class="font-heading text-3xl font-black italic uppercase mb-3 text-slate-900 dark:text-white">UFO Game</h3>
+            <p class="font-sans text-slate-700 dark:text-gray-400 text-sm mb-8 leading-relaxed font-light" data-i18n="project_ufo_desc">Interaktives Web-Spiel mit flüssigen Animationen und komplexer JavaScript-Logik.</p>
+            <div class="inline-flex items-center gap-3 text-xs font-nav font-bold uppercase tracking-[0.2em] text-slate-900 dark:text-white border-b border-slate-900/20 dark:border-white/20 pb-2 group-hover:border-slate-900 dark:group-hover:border-white transition-all" data-i18n="btn_view_project">
+              PROJEKT ANSEHEN <span class="group-hover:translate-x-2 rtl:group-hover:-translate-x-2 transition-transform rtl:rotate-180 inline-block">➔</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://drive.google.com/file/d/1xQjCB_4F-r3_7YMpFDoYMEsUsEHE3moH/view?usp=drivesdk" target="_blank" class="project-card relative h-[500px] w-full group block bg-white dark:bg-grayDark border border-slate-200 dark:border-gray-800 hover:border-slate-400 dark:hover:border-gray-500 shadow-lg shadow-slate-200/40 hover:shadow-xl hover:shadow-slate-200/60 dark:shadow-none transition-all duration-500 rounded-sm">
+          <img src="https://images.unsplash.com/photo-1552168324-d612d77725e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="MOS VISUALS" class="absolute inset-0 w-full h-full object-cover opacity-60 dark:opacity-50 mix-blend-multiply dark:mix-blend-normal">
+          <div class="absolute inset-0 image-overlay opacity-90 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div class="absolute bottom-12 left-12 right-12 z-10 rtl:text-right">
+            <h3 class="font-heading text-3xl font-black italic uppercase mb-3 text-slate-900 dark:text-white">MOS VISUALS</h3>
+            <p class="font-sans text-slate-700 dark:text-gray-400 text-sm mb-8 leading-relaxed font-light" data-i18n="project_mo_desc">Architektur-Demonstration von UI/UX Design und starken Backend-Automatisierungen.</p>
+            <div class="inline-flex items-center gap-3 text-xs font-nav font-bold uppercase tracking-[0.2em] text-slate-900 dark:text-white border-b border-slate-900/20 dark:border-white/20 pb-2 group-hover:border-slate-900 dark:group-hover:border-white transition-all" data-i18n="btn_view_project">
+              PROJEKT ANSEHEN <span class="group-hover:translate-x-2 rtl:group-hover:-translate-x-2 transition-transform rtl:rotate-180 inline-block">➔</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://github.com/MahmoudProgrammiererProjekte/Meine_Arbeit/blob/main/Hardware_Monitoring_Automation_Project/README.md" target="_blank" class="project-card relative h-[500px] w-full group block bg-white dark:bg-grayDark border border-slate-200 dark:border-gray-800 hover:border-slate-400 dark:hover:border-gray-500 shadow-lg shadow-slate-200/40 hover:shadow-xl hover:shadow-slate-200/60 dark:shadow-none transition-all duration-500 rounded-sm">
+          <img src="https://images.unsplash.com/photo-1518481612222-68bbe828ecd1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Hardware Automation" class="absolute inset-0 w-full h-full object-cover opacity-60 dark:opacity-50 mix-blend-multiply dark:mix-blend-normal">
+          <div class="absolute inset-0 image-overlay opacity-90 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div class="absolute bottom-12 left-12 right-12 z-10 rtl:text-right">
+            <h3 class="font-heading text-3xl font-black italic uppercase mb-3 text-slate-900 dark:text-white tracking-tighter" data-i18n="project_hw_title">HW-Automatisierung</h3>
+            <p class="font-sans text-slate-700 dark:text-gray-400 text-sm mb-8 leading-relaxed font-light" data-i18n="project_hw_desc">Systemdiagnose-Tool mit Jenkins-CI/CD. Automatisiertes Testing und terminierte Kundenreports.</p>
+            <div class="inline-flex items-center gap-3 text-xs font-nav font-bold uppercase tracking-[0.2em] text-slate-900 dark:text-white border-b border-slate-900/20 dark:border-white/20 pb-2 group-hover:border-slate-900 dark:group-hover:border-white transition-all" data-i18n="btn_view_doc">
+              DOKUMENTATION <span class="group-hover:translate-x-2 rtl:group-hover:-translate-x-2 transition-transform rtl:rotate-180 inline-block">➔</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://github.com/MahmoudProgrammiererProjekte/Meine_Arbeit/tree/main" target="_blank" class="project-card relative h-[500px] w-full group block bg-white dark:bg-grayDark border border-slate-200 dark:border-gray-800 hover:border-slate-400 dark:hover:border-gray-500 shadow-lg shadow-slate-200/40 hover:shadow-xl hover:shadow-slate-200/60 dark:shadow-none transition-all duration-500 rounded-sm">
+          <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="GitHub" class="absolute inset-0 w-full h-full object-cover opacity-60 dark:opacity-50 mix-blend-multiply dark:mix-blend-normal">
+          <div class="absolute inset-0 image-overlay opacity-90 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div class="absolute bottom-12 left-12 right-12 z-10 rtl:text-right">
+            <h3 class="font-heading text-3xl font-black italic uppercase mb-3 text-slate-900 dark:text-white">Source Code</h3>
+            <p class="font-sans text-slate-700 dark:text-gray-400 text-sm mb-8 leading-relaxed font-light" data-i18n="project_git_desc">Mein öffentliches Repository. Entdecken Sie saubere Code-Strukturen und weitere Projekte.</p>
+            <div class="inline-flex items-center gap-3 text-xs font-nav font-bold uppercase tracking-[0.2em] text-slate-900 dark:text-white border-b border-slate-900/20 dark:border-white/20 pb-2 group-hover:border-slate-900 dark:group-hover:border-white transition-all" data-i18n="btn_view_github">
+              GITHUB BESUCHEN <span class="group-hover:translate-x-2 rtl:group-hover:-translate-x-2 transition-transform rtl:rotate-180 inline-block">➔</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <section class="py-32 px-6 md:px-16 lg:px-24 w-full bg-white dark:bg-[#050505] border-t border-b border-slate-200 dark:border-gray-900 mt-20">
+      <div class="w-full mx-auto grid lg:grid-cols-2 gap-20">
+
+        <div class="rtl:text-right">
+          <h2 class="font-heading text-2xl font-black italic uppercase mb-10 border-b border-slate-200 dark:border-gray-800 pb-4 text-slate-800 dark:text-gray-200 tracking-wider" data-i18n="exp_title">Erfahrung</h2>
+
+          <div class="mb-12">
+            <h3 class="text-xl font-bold mb-1 text-slate-900 dark:text-white" data-i18n="exp_role1">Software Developer</h3>
+            <p class="font-nav text-slate-500 text-xs tracking-widest uppercase mb-4" data-i18n="exp_focus">Aktueller Fokus</p>
+            <ul class="space-y-3 text-slate-600 dark:text-gray-400 text-sm font-light">
+              <li data-i18n="exp_task1">▹ Konzeption und Umsetzung von Web-Anwendungen unter Einsatz von KI-Tools</li>
+              <li data-i18n="exp_task2">▹ Entwicklung skalierbarer Software-Projekte</li>
+              <li data-i18n="exp_task3">▹ Entwicklung von Python-Skripten zur Automatisierung von Datenprozessen</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-bold mb-1 text-slate-900 dark:text-white" data-i18n="exp_role2">Ausbildung zum Fachinformatiker für Anwendungsentwicklung</h3>
+            <p class="font-nav text-slate-500 text-xs tracking-widest uppercase mb-4">AVL-Software and Funktion GmbH, Regensburg</p>
+            <ul class="space-y-3 text-slate-600 dark:text-gray-400 text-sm font-light">
+              <li data-i18n="exp_task4">▹ Automatisierung von Prozessen, Datenanalyse</li>
+              <li data-i18n="exp_task5">▹ Webentwicklung</li>
+              <li data-i18n="exp_task6">▹ Projektverwaltung mit Git</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="rtl:text-right">
+          <h2 class="font-heading text-2xl font-black italic uppercase mb-10 border-b border-slate-200 dark:border-gray-800 pb-4 text-slate-800 dark:text-gray-200 tracking-wider">Tech Stack</h2>
+
+          <div class="space-y-8">
+            <div>
+              <h3 class="font-nav text-slate-500 text-xs tracking-widest uppercase mb-4" data-i18n="tech_langs">Programmiersprachen</h3>
+              <div class="flex flex-wrap gap-2 rtl:flex-row-reverse rtl:justify-end font-nav">
+                <span class="px-4 py-2 bg-lightBg dark:bg-black border border-slate-200 dark:border-gray-800 text-[10px] font-semibold tracking-widest text-slate-600 dark:text-gray-400 uppercase rounded-sm shadow-sm dark:shadow-none">Python</span>
+                <span class="px-4 py-2 bg-lightBg dark:bg-black border border-slate-200 dark:border-gray-800 text-[10px] font-semibold tracking-widest text-slate-600 dark:text-gray-400 uppercase rounded-sm shadow-sm dark:shadow-none">HTML</span>
+                <span class="px-4 py-2 bg-lightBg dark:bg-black border border-slate-200 dark:border-gray-800 text-[10px] font-semibold tracking-widest text-slate-600 dark:text-gray-400 uppercase rounded-sm shadow-sm dark:shadow-none">CSS</span>
+                <span class="px-4 py-2 bg-lightBg dark:bg-black border border-slate-200 dark:border-gray-800 text-[10px] font-semibold tracking-widest text-slate-600 dark:text-gray-400 uppercase rounded-sm shadow-sm dark:shadow-none">JavaScript</span>
+                <span class="px-4 py-2 bg-lightBg dark:bg-black border border-slate-200 dark:border-gray-800 text-[10px] font-semibold tracking-widest text-slate-600 dark:text-gray-400 uppercase rounded-sm shadow-sm dark:shadow-none">SQL</span>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="font-nav text-slate-500 text-xs tracking-widest uppercase mb-4" data-i18n="tech_tools">Tools</h3>
+              <div class="flex flex-wrap gap-2 rtl:flex-row-reverse rtl:justify-end font-nav">
+                <span class="px-4 py-2 bg-slate-800 dark:bg-gray-900 border border-slate-800 dark:border-gray-600 text-[10px] font-semibold tracking-widest text-white uppercase rounded-sm shadow-sm dark:shadow-none">Jenkins</span>
+                <span class="px-4 py-2 bg-lightBg dark:bg-black border border-slate-200 dark:border-gray-800 text-[10px] font-semibold tracking-widest text-slate-600 dark:text-gray-400 uppercase rounded-sm shadow-sm dark:shadow-none">GitLab</span>
+                <span class="px-4 py-2 bg-lightBg dark:bg-black border border-slate-200 dark:border-gray-800 text-[10px] font-semibold tracking-widest text-slate-600 dark:text-gray-400 uppercase rounded-sm shadow-sm dark:shadow-none">Jira</span>
+                <span class="px-4 py-2 bg-lightBg dark:bg-black border border-slate-200 dark:border-gray-800 text-[10px] font-semibold tracking-widest text-slate-600 dark:text-gray-400 uppercase rounded-sm shadow-sm dark:shadow-none">Visual Studio Code</span>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="font-nav text-slate-500 text-xs tracking-widest uppercase mb-4" data-i18n="tech_frameworks">Frameworks</h3>
+              <div class="flex flex-wrap gap-2 rtl:flex-row-reverse rtl:justify-end font-nav">
+                <span class="px-4 py-2 bg-lightBg dark:bg-black border border-slate-200 dark:border-gray-800 text-[10px] font-semibold tracking-widest text-slate-600 dark:text-gray-400 uppercase rounded-sm shadow-sm dark:shadow-none">Django</span>
+                <span class="px-4 py-2 bg-lightBg dark:bg-black border border-slate-200 dark:border-gray-800 text-[10px] font-semibold tracking-widest text-slate-600 dark:text-gray-400 uppercase rounded-sm shadow-sm dark:shadow-none">Flask</span>
+                <span class="px-4 py-2 bg-lightBg dark:bg-black border border-slate-200 dark:border-gray-800 text-[10px] font-semibold tracking-widest text-slate-600 dark:text-gray-400 uppercase rounded-sm shadow-sm dark:shadow-none">NumPy</span>
+                <span class="px-4 py-2 bg-lightBg dark:bg-black border border-slate-200 dark:border-gray-800 text-[10px] font-semibold tracking-widest text-slate-600 dark:text-gray-400 uppercase rounded-sm shadow-sm dark:shadow-none">React</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact" class="relative bg-white dark:bg-[#020202] py-20 text-center transition-colors duration-300 w-full overflow-hidden">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-slate-200/40 dark:bg-white/5 rounded-full blur-[100px] pointer-events-none"></div>
+
+    <div class="relative z-10 w-full px-6 md:px-16 lg:px-24 mx-auto">
+      <h2 class="font-heading text-3xl md:text-5xl font-black italic uppercase mb-8 tracking-tight text-slate-900 dark:text-white" data-i18n="contact_title">Lass uns reden.</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-slate-200 dark:border-gray-900 pt-10 font-nav max-w-4xl mx-auto">
+
+        <div class="flex flex-col items-center group">
+          <span class="text-[10px] text-slate-400 dark:text-gray-600 font-semibold tracking-[0.3em] uppercase mb-2" data-i18n="contact_email">E-Mail</span>
+          <a href="mailto:Benachrichtigung.Mahmoud@hotmail.com" class="text-xs md:text-sm text-slate-700 dark:text-gray-300 hover:text-slate-900 dark:hover:text-white transition duration-300">Benachrichtigung.Mahmoud@hotmail.com</a>
+        </div>
+
+        <div class="flex flex-col items-center group">
+          <span class="text-[10px] text-slate-400 dark:text-gray-600 font-semibold tracking-[0.3em] uppercase mb-2">WhatsApp</span>
+          <a href="https://wa.me/4915252690273" target="_blank" class="text-xs md:text-sm text-slate-700 dark:text-gray-300 hover:text-slate-900 dark:hover:text-white transition duration-300 tracking-widest" dir="ltr">+49 1525 2690273</a>
+        </div>
+
+        <div class="flex flex-col items-center group">
+          <span class="text-[10px] text-slate-400 dark:text-gray-600 font-semibold tracking-[0.3em] uppercase mb-2">GitHub</span>
+          <a href="https://github.com/MahmoudProgrammiererProjekte/Meine_Arbeit/tree/main" target="_blank" class="text-xs md:text-sm text-slate-700 dark:text-gray-300 hover:text-slate-900 dark:hover:text-white transition duration-300" data-i18n="contact_github">Codes ansehen ↗</a>
+        </div>
+
+      </div>
+
+      <div class="mt-16 flex flex-col md:flex-row items-center justify-between text-[10px] text-slate-500 dark:text-gray-600 font-nav font-semibold tracking-[0.2em] uppercase border-t border-slate-200 dark:border-gray-900/50 pt-8">
+        <p data-i18n="footer_rights">© 2026 MAHMOUD. ALL RIGHTS RESERVED.</p>
+        <div class="flex space-x-8 mt-6 md:mt-0 rtl:space-x-reverse">
+          <button onclick="openModal('impressum-modal')" class="hover:text-slate-900 dark:hover:text-gray-300 transition" data-i18n="footer_impressum">Impressum</button>
+          <button onclick="openModal('datenschutz-modal')" class="hover:text-slate-900 dark:hover:text-gray-300 transition" data-i18n="footer_privacy">Datenschutz</button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div id="impressum-modal" class="hidden fixed inset-0 z-[100] bg-slate-900/50 dark:bg-black/95 flex items-center justify-center p-4 backdrop-blur-md">
+    <div class="bg-white dark:bg-[#0a0a0a] p-8 max-w-xl w-full border border-slate-200 dark:border-gray-800 relative rtl:text-right rounded-sm shadow-2xl">
+      <button onclick="closeModal('impressum-modal')" class="absolute top-4 right-6 rtl:right-auto rtl:left-6 text-2xl text-slate-400 hover:text-slate-900 dark:hover:text-white">&times;</button>
+      <h2 class="text-xl font-heading font-black italic uppercase mb-6 text-slate-900 dark:text-white border-b border-slate-200 dark:border-gray-800 pb-4" data-i18n="footer_impressum">Impressum</h2>
+      <p class="text-sm text-slate-600 dark:text-gray-400 leading-relaxed font-light" data-i18n="impressum_text">
+        Mahmoud Taklla<br>Software Developer<br>Oberländer Straße 2<br>93051 Regensburg, Deutschland<br><br>Kontakt: Benachrichtigung.Mahmoud@hotmail.com<br>Tel: +49 1525 2690273
+      </p>
     </div>
   </div>
-  <div class="scroll-ind"></div>
-</header>
 
-<main>
-<section id="about"><div class="container about">
-  <div class="rv"><div class="photo"><img src="IMG_8230.jpeg" alt="Mahmoud Portrait" decoding="async"></div></div>
-  <div class="rv d1">
-    <span class="eyebrow" data-i18n="about_pretitle">Exzellente Software braucht klare Architektur</span>
-    <h2 class="sec-title" data-i18n="about_title">Ein hochwertiger Code ist mehr als nur Syntax, er automatisiert Prozesse und <span class="mut">integriert KI...</span></h2>
-    <p class="desc" data-i18n="about_desc">Als Senior Software Developer verwandle ich komplexe Probleme in elegante Lösungen. Meine Leidenschaft liegt darin, durch sauberen Code und innovative Technologien echten Mehrwert zu schaffen.</p>
-    <div class="chips">
-      <div class="chip"><i class="fa-solid fa-code"></i><span data-i18n="chip1">Clean Code</span></div>
-      <div class="chip"><i class="fa-solid fa-robot"></i><span data-i18n="chip2">KI-Integration</span></div>
-      <div class="chip"><i class="fa-solid fa-gears"></i><span data-i18n="chip3">Automatisierung</span></div>
+  <div id="datenschutz-modal" class="hidden fixed inset-0 z-[100] bg-slate-900/50 dark:bg-black/95 flex items-center justify-center p-4 backdrop-blur-md transition-opacity">
+    <div class="bg-white dark:bg-[#0a0a0a] p-8 max-w-3xl w-full max-h-[80vh] overflow-y-auto border border-slate-200 dark:border-gray-800 relative text-left rtl:text-right rounded-sm shadow-2xl">
+      <button onclick="closeModal('datenschutz-modal')" class="absolute top-4 right-6 rtl:right-auto rtl:left-6 text-2xl text-slate-400 hover:text-slate-900 dark:hover:text-white">&times;</button>
+      <h2 class="text-xl font-heading font-black italic uppercase mb-6 text-slate-900 dark:text-white border-b border-slate-200 dark:border-gray-800 pb-4" data-i18n="footer_privacy">Datenschutz</h2>
+      <div class="text-xs text-slate-600 dark:text-gray-400 space-y-4 font-light" data-i18n="privacy_text">
+        <p>Wir nehmen den Schutz Ihrer Daten ernst. Auf dieser Website werden keine Daten gesammelt und keine Cookies zur Nachverfolgung (Tracking) verwendet.</p>
+        <p>Der Provider der Seiten (Host) erhebt und speichert automatisch Informationen in sogenannten Server-Log-Dateien, die Ihr Browser automatisch übermittelt (z.B. IP-Adresse). Dies ist technisch notwendig, um Ihnen unsere Website anzuzeigen und die Stabilität zu gewährleisten.</p>
+        <p>Anfragen per E-Mail oder WhatsApp werden absolut vertraulich behandelt.</p>
+      </div>
     </div>
   </div>
-</div></section>
 
-<section id="work"><div class="container">
-  <div class="head-c rv"><span class="eyebrow" data-i18n="work_eyebrow">Portfolio</span><h2 class="sec-title" data-i18n="work_title">Meine Arbeit</h2></div>
-  <div class="projects" id="projects"></div>
-</div></section>
+  <script>
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
 
-<section id="exp" style="padding-top:2.5rem"><div class="exp-wrap rv">
-  <div class="head-c" style="margin-bottom:0"><span class="eyebrow" data-i18n="exp_eyebrow"></span><h2 class="sec-title" data-i18n="exp_title"></h2></div>
-  <div class="timeline">
-    <div class="job"><h3 data-i18n="exp_role1"></h3><div class="org" data-i18n="exp_focus"></div><ul><li data-i18n="exp_task1"></li><li data-i18n="exp_task2"></li><li data-i18n="exp_task3"></li></ul></div>
-    <div class="job"><h3 data-i18n="exp_role2"></h3><div class="org">AVL-Software and Funktion GmbH, Regensburg</div><ul><li data-i18n="exp_task4"></li><li data-i18n="exp_task5"></li><li data-i18n="exp_task6"></li></ul></div>
-  </div>
-</div></section>
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      mobileMenu.classList.toggle('flex');
+    });
 
-<section id="tech" style="padding-top:2.5rem"><div class="container">
-  <div class="head-c rv"><span class="eyebrow">Skills</span><h2 class="sec-title">Tech Stack</h2></div>
-  <div class="stack" id="stack"></div>
-</div></section>
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('flex');
+      });
+    });
 
-<section id="contact" style="padding-top:2.5rem"><div class="container"><div class="cta-box rv">
-  <span class="eyebrow" data-i18n="contact_eyebrow"></span>
-  <h2 data-i18n="contact_title">Lass uns reden.</h2>
-  <div class="contacts">
-    <div class="ct"><i class="fa-solid fa-envelope gt"></i><small data-i18n="contact_email"></small><a href="mailto:TischTakt.QR@outlook.com">TischTakt.QR@outlook.com</a></div>
-    <div class="ct wa"><i class="fa-brands fa-whatsapp gt"></i><small>WhatsApp</small><a href="https://wa.me/4915252690273" target="_blank" rel="noopener" dir="ltr">+49 1525 2690273</a></div>
-    <div class="ct"><i class="fa-brands fa-github gt"></i><small>GitHub</small><a href="https://github.com/MahmoudProgrammiererProjekte/Meine_Arbeit/tree/main" target="_blank" rel="noopener" data-i18n="contact_github"></a></div>
-  </div>
-</div></div></section>
-</main>
+    function toggleTheme() {
+      const htmlEl = document.documentElement;
+      const isDark = htmlEl.classList.contains('dark');
 
-<footer><div class="container foot">
-  <p data-i18n="footer_rights"></p>
-  <div><button onclick="openModal('impressum-modal')" data-i18n="footer_impressum"></button><button onclick="openModal('datenschutz-modal')" data-i18n="footer_privacy"></button></div>
-</div></footer>
+      if (isDark) {
+        htmlEl.classList.remove('dark');
+        localStorage.theme = 'light';
+        updateThemeIcons('☀️');
+      } else {
+        htmlEl.classList.add('dark');
+        localStorage.theme = 'dark';
+        updateThemeIcons('🌙');
+      }
+    }
 
-<div id="impressum-modal" class="modal" onclick="if(event.target===this)closeModal(this.id)"><div class="m-box"><button class="m-x" onclick="closeModal('impressum-modal')">&times;</button><h2 data-i18n="footer_impressum"></h2><div class="t" data-i18n="impressum_text"></div></div></div>
-<div id="datenschutz-modal" class="modal" onclick="if(event.target===this)closeModal(this.id)"><div class="m-box"><button class="m-x" onclick="closeModal('datenschutz-modal')">&times;</button><h2 data-i18n="footer_privacy"></h2><div class="t" data-i18n="privacy_text"></div></div></div>
+    function updateThemeIcons(icon) {
+      document.getElementById('theme-btn-mobile').innerText = icon;
+      document.getElementById('theme-btn-desktop').innerText = icon;
+    }
 
-<script>
-const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);
+    if (localStorage.theme === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+      document.documentElement.classList.remove('dark');
+      updateThemeIcons('☀️');
+    } else {
+      document.documentElement.classList.add('dark');
+      updateThemeIcons('🌙');
+    }
 
-/* ===== color themes: aurora (standard) -> sunset -> emerald ===== */
-const THEMES=['aurora','sunset','emerald'];
-function applyTheme(t){const h=document.documentElement;h.dataset.theme=t;h.dataset.next=THEMES[(THEMES.indexOf(t)+1)%3];try{localStorage.setItem('colorTheme',t)}catch(e){}}
-function cycleTheme(){applyTheme(THEMES[(THEMES.indexOf(document.documentElement.dataset.theme)+1)%3])}
-let st='aurora';try{const s=localStorage.getItem('colorTheme');if(THEMES.includes(s))st=s}catch(e){}applyTheme(st);
+    function openModal(id) { document.getElementById(id).classList.remove('hidden'); document.body.style.overflow = 'hidden'; }
+    function closeModal(id) { document.getElementById(id).classList.add('hidden'); document.body.style.overflow = 'auto'; }
 
-/* ===== nav ===== */
-const links=[['home','nav_home'],['about','nav_about'],['work','nav_work'],['tech','nav_tech']].map(([h,k])=>`<a href="#${h}" class="l" data-i18n="${k}"></a>`).join('')+'<a href="#contact" class="btn-c" data-i18n="nav_contact"></a>';
-const LANG='<div class="lang">'+['de','en','ar'].map(l=>`<button data-l="${l}" onclick="changeLanguage('${l}')">${l.toUpperCase()}</button>`).join('')+'</div>';
-const CB='<button class="color-btn" onclick="cycleTheme()" aria-label="Change color"><span class="sw"><i class="fa-solid fa-palette"></i></span></button>';
-$('#links').innerHTML=links+LANG+CB;
-$('#nr').innerHTML=CB+'<button class="burger" id="burger" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>';
-const mob=$('#mobile');mob.innerHTML=links+LANG;
-$('#burger').onclick=()=>mob.classList.toggle('open');
-mob.querySelectorAll('a').forEach(a=>a.onclick=()=>mob.classList.remove('open'));
+    const translations = {
+      de: {
+        page_title: "Mahmoud | Premium Software Development",
+        nav_home: "Home", nav_about: "Über Mich", nav_work: "Meine Arbeit", nav_contact: "Kontakt",
+        hero_title: "MAHMOUD", hero_subtitle: "Premium Software Development",
+        about_pretitle: "Exzellente Software braucht klare Architektur",
+        about_title: 'Ein hochwertiger Code ist mehr als nur Syntax, er automatisiert Prozesse und <span class="text-slate-400 dark:text-gray-500">integriert KI...</span>',
+        about_desc: "Software Developer mit Schwerpunkt auf Web-Anwendungen, Automatisierung und KI. In meiner Ausbildung zum Fachinformatiker für Anwendungsentwicklung bei AVL in Regensburg arbeite ich mit Git, Prozessautomatisierung und Webentwicklung. Daneben entwickle ich eigene Projekte mit Next.js, Supabase und Python, vom digitalen Restaurant-Menü bis zur CI/CD-Pipeline.",
+        work_title: "Meine Arbeit",
 
-/* ===== projects ===== */
-const P=[
-['https://smart-resto.pages.dev/menu/demo','photo-1555396273-367ea4eb4db5','Smart Resto','project_resto_title','project_resto_desc','btn_view_demo',['Next.js','Supabase','Realtime']],
-['https://mahmoudprogrammiererprojekte.github.io/ufo-game/','photo-1614730321146-b6fa6a46bcb4','UFO Game','','project_ufo_desc','btn_view_project',['JavaScript','Canvas','Game']],
-['https://brs-beton-kosmetik.pages.dev','photo-1504307651254-35680f356dfd','BRS Beton Kosmetik','','project_brs_desc','btn_view_project',['Next.js','Tailwind','Landing Page']],
-['https://drive.google.com/file/d/1xQjCB_4F-r3_7YMpFDoYMEsUsEHE3moH/view?usp=drivesdk','photo-1552168324-d612d77725e3','MOS VISUALS','','project_mo_desc','btn_view_project',['React','Next.js','Video']],
-['https://github.com/MahmoudProgrammiererProjekte/Meine_Arbeit/blob/main/Hardware_Monitoring_Automation_Project/README.md','photo-1518481612222-68bbe828ecd1','HW-Automatisierung','project_hw_title','project_hw_desc','btn_view_doc',['Python','Jenkins','CI/CD']],
-['https://github.com/MahmoudProgrammiererProjekte/Meine_Arbeit/tree/main','photo-1516116216624-53e697fedbea','Source Code','','project_git_desc','btn_view_github',['Git','GitHub','Open Source']]];
-$('#projects').innerHTML=P.map((p,n)=>`<a href="${p[0]}" target="_blank" rel="noopener" class="card rv ${['','d1','d2'][n%3]}"><div class="thumb"><span class="num">0${n+1}</span><img src="https://images.unsplash.com/${p[1]}?auto=format&fit=crop&w=900&q=75" alt="${p[2]}" loading="lazy" decoding="async" width="900" height="540"></div><div class="body"><h3 ${p[3]?`data-i18n="${p[3]}"`:''}>${p[2]}</h3><p data-i18n="${p[4]}"></p><div class="tags">${p[6].map(x=>`<span>${x}</span>`).join('')}</div><div class="more"><span data-i18n="${p[5]}"></span><span class="arr">➔</span></div></div></a>`).join('');
+        project_resto_title: "Smart Resto",
+        project_resto_desc: "Ein intelligentes digitales Menü- und Bestellsystem für moderne Restaurants.",
+        project_resto_url: "https://smart-resto.pages.dev/menu/demo",
+        btn_view_demo: 'DEMO ANSEHEN <span class="group-hover:translate-x-2 transition-transform rtl:rotate-180 inline-block">➔</span>',
 
-/* ===== tech stack ===== */
-const TD=[
-['tech_langs','fa-solid fa-terminal',[['fa-brands fa-python','Python','Machine Learning / Web'],['fa-solid fa-code','TypeScript'],['fa-brands fa-js','JavaScript'],['fa-brands fa-html5','HTML5'],['fa-brands fa-css3-alt','CSS3'],['fa-solid fa-database','SQL','General DB'],['fa-brands fa-linux','Linux','Core Operating System'],['fa-brands fa-node-js','Node.js','Runtime Environment']]],
-['tech_tools','fa-solid fa-infinity',[['fa-solid fa-gears','Jenkins','CI/CD'],['fa-brands fa-docker','Docker'],['fa-solid fa-dharmachakra','Kubernetes'],['fa-brands fa-gitlab','GitLab'],['fa-brands fa-github','Git & GitHub'],['fa-brands fa-jira','Jira'],['fa-solid fa-code','Visual Studio Code']]],
-['tech_backend','fa-solid fa-server',[['fa-solid fa-database','PostgreSQL'],['fa-solid fa-bolt','Supabase','Backend-as-a-Service'],['fa-solid fa-memory','Redis','In-Memory DB'],['fa-solid fa-table','SQL'],['fa-solid fa-tower-broadcast','Real-time Subscriptions'],['fa-solid fa-lock','Auth']]],
-['tech_frameworks','fa-solid fa-layer-group',[['fa-solid fa-n','Next.js (App Router)','Frontend & Full-Stack'],['fa-brands fa-react','React'],['fa-solid fa-wind','Tailwind CSS'],['fa-solid fa-diagram-project','Django'],['fa-solid fa-flask','Flask'],['fa-solid fa-gauge-high','FastAPI']]],
-['tech_ai','fa-solid fa-brain',[['fa-solid fa-brain','TensorFlow'],['fa-solid fa-fire','PyTorch'],['fa-solid fa-square-root-variable','NumPy']]],
-['tech_hosting','fa-solid fa-cloud',[['fa-brands fa-cloudflare','Cloudflare','CDN / DNS / WAF'],['fa-solid fa-cloud','Cloudflare Pages'],['fa-solid fa-cloud-arrow-up','@cloudflare/next-on-pages'],['fa-solid fa-terminal','Wrangler'],['fa-solid fa-rocket','Vercel CLI'],['fa-brands fa-npm','npm'],['fa-solid fa-share-nodes','Open Graph Protocol (OG Meta)']]]];
-$('#stack').innerHTML=TD.map((g,i)=>`<div class="sg rv ${['','d1','d2'][i%3]}"><h4><i class="${g[1]}"></i><span data-i18n="${g[0]}"></span></h4><div class="pills">${g[2].map(t=>`<div class="tech"><i class="${t[0]}"></i><div><b>${t[1]}</b>${t[2]?`<small>${t[2]}</small>`:''}</div></div>`).join('')}</div></div>`).join('');
+        project_ufo_desc: "Interaktives Web-Spiel mit flüssigen Animationen und komplexer JavaScript-Logik.",
+        btn_view_project: 'PROJEKT ANSEHEN <span class="group-hover:translate-x-2 transition-transform rtl:rotate-180 inline-block">➔</span>',
+        project_mo_desc: "Portfolio für einen professionellen Fotografen. Flüssige Performance und hochauflösende Videos, entwickelt mit Next.js, React und Tailwind CSS.",
+        project_hw_title: "HW-Automatisierung", project_hw_desc: "Systemdiagnose-Tool mit Jenkins-CI/CD. Automatisiertes Testing und terminierte Kundenreports.",
+        btn_view_doc: 'DOKUMENTATION <span class="group-hover:translate-x-2 transition-transform rtl:rotate-180 inline-block">➔</span>',
+        project_git_desc: "Mein öffentliches Repository. Entdecken Sie saubere Code-Strukturen und weitere Projekte.",
+        btn_view_github: 'GITHUB BESUCHEN <span class="group-hover:translate-x-2 transition-transform rtl:rotate-180 inline-block">➔</span>',
+        exp_title: "Erfahrung",
+        exp_role1: "Software Developer",
+        exp_focus: "Aktueller Fokus",
+        exp_task1: "▹ Konzeption und Umsetzung von Web-Anwendungen unter Einsatz von KI-Tools",
+        exp_task2: "▹ Entwicklung skalierbarer Software-Projekte",
+        exp_task3: "▹ Entwicklung von Python-Skripten zur Automatisierung von Datenprozessen",
+        exp_role2: "Ausbildung zum Fachinformatiker für Anwendungsentwicklung",
+        exp_task4: "▹ Automatisierung von Prozessen, Datenanalyse",
+        exp_task5: "▹ Webentwicklung",
+        exp_task6: "▹ Projektverwaltung mit Git",
+        tech_langs: "Programmiersprachen", tech_tools: "Tools", tech_frameworks: "Frameworks",
+        contact_title: "Lass uns reden.", contact_email: "E-Mail", contact_github: "Codes ansehen ↗",
+        footer_rights: "© 2026 MAHMOUD. ALLE RECHTE VORBEHALTEN.", footer_impressum: "Impressum", footer_privacy: "Datenschutz",
+        impressum_text: "Mahmoud Taklla<br>Software Developer<br>Oberländer Straße 2<br>93051 Regensburg, Deutschland<br><br>Kontakt: Benachrichtigung.Mahmoud@hotmail.com<br>Tel: +49 1525 2690273",
+        privacy_text: "<p>Wir nehmen den Schutz Ihrer Daten ernst. Auf dieser Website werden keine Daten gesammelt und keine Cookies zur Nachverfolgung (Tracking) verwendet.</p><br><p>Der Provider der Seiten (Host) erhebt und speichert automatisch Informationen in sogenannten Server-Log-Dateien, die Ihr Browser automatisch übermittelt (z.B. IP-Adresse). Dies ist technisch notwendig, um Ihnen unsere Website anzuzeigen und die Stabilität zu gewährleisten.</p>"
+      },
+      en: {
+        page_title: "Mahmoud | Premium Software Development",
+        nav_home: "Home", nav_about: "About Me", nav_work: "My Work", nav_contact: "Contact",
+        hero_title: "MAHMOUD", hero_subtitle: "Premium Software Development",
+        about_pretitle: "Excellent software needs clear architecture",
+        about_title: 'High-quality code is more than just syntax, it automates processes and <span class="text-slate-400 dark:text-gray-500">integrates AI...</span>',
+        about_desc: "Software Developer focused on web applications, automation and AI. In my apprenticeship as an IT specialist for application development at AVL in Regensburg, I work with Git, process automation and web development. On the side, I build my own projects with Next.js, Supabase and Python, from digital restaurant menus to CI/CD pipelines.",
+        work_title: "My Work",
 
-/* ===== modals ===== */
-function openModal(id){$('#'+id).classList.add('open');document.body.style.overflow='hidden'}
-function closeModal(id){$('#'+id).classList.remove('open');document.body.style.overflow=''}
-document.addEventListener('keydown',e=>{if(e.key==='Escape')$$('.modal.open').forEach(m=>closeModal(m.id))});
+        project_resto_title: "Smart Resto",
+        project_resto_desc: "A smart digital menu and ordering system for modern restaurants.",
+        project_resto_url: "https://smart-resto.pages.dev/menu/demo",
+        btn_view_demo: 'VIEW DEMO <span class="group-hover:translate-x-2 transition-transform rtl:rotate-180 inline-block">➔</span>',
 
-/* ===== translations ===== */
-const translations={
-de:{page_title:"Mahmoud | Premium Software Development",nav_home:"Home",nav_about:"Über Mich",nav_work:"Meine Arbeit",nav_tech:"Tech Stack",nav_contact:"Kontakt",hero_badge:"Verfügbar für neue Projekte",hero_title:"MAHMOUD",hero_subtitle:"Premium Software Development",hero_whatsapp_btn:"WhatsApp Direktkontakt",hero_work_btn:"Projekte ansehen",stat_projects:"Projekte",stat_tech:"Technologien",stat_lang:"Sprachen",
-about_pretitle:"Exzellente Software braucht klare Architektur",about_title:'Ein hochwertiger Code ist mehr als nur Syntax, er automatisiert Prozesse und <span class="mut">integriert KI...</span>',about_desc:"Als Senior Software Developer verwandle ich komplexe Probleme in elegante Lösungen. Meine Leidenschaft liegt darin, durch sauberen Code und innovative Technologien echten Mehrwert zu schaffen.",chip1:"Clean Code",chip2:"KI-Integration",chip3:"Automatisierung",
-work_eyebrow:"Portfolio",work_title:"Meine Arbeit",project_resto_title:"Smart Resto",project_resto_desc:"Ein intelligentes digitales Menü- und Bestellsystem für moderne Restaurants.",btn_view_demo:"DEMO ANSEHEN",project_ufo_desc:"Interaktives Web-Spiel mit flüssigen Animationen und komplexer JavaScript-Logik.",project_brs_desc:"Moderne Landing Page für Beton kosmetik Dienstleistungen mit performantem Next.js UI.",btn_view_project:"PROJEKT ANSEHEN",project_mo_desc:"Portfolio für einen professionellen Fotografen. Flüssige Performance und hochauflösende Videos, entwickelt mit Next.js, React und Tailwind CSS.",project_hw_title:"HW-Automatisierung",project_hw_desc:"Systemdiagnose-Tool mit Jenkins-CI/CD. Automatisiertes Testing und terminierte Kundenreports.",btn_view_doc:"DOKUMENTATION",project_git_desc:"Mein öffentliches Repository. Entdecken Sie saubere Code-Strukturen und weitere Projekte.",btn_view_github:"GITHUB BESUCHEN",
-exp_eyebrow:"Werdegang",exp_title:"Erfahrung",exp_role1:"Software Developer",exp_focus:"Aktueller Fokus",exp_task1:"▹ Konzeption und Umsetzung von Web-Anwendungen unter Einsatz von KI-Tools",exp_task2:"▹ Entwicklung skalierbarer Software-Projekte",exp_task3:"▹ Entwicklung von Python-Skripten zur Automatisierung von Datenprozessen",exp_role2:"Ausbildung zum Fachinformatiker für Anwendungsentwicklung",exp_task4:"▹ Automatisierung von Prozessen, Datenanalyse",exp_task5:"▹ Webentwicklung",exp_task6:"▹ Projektverwaltung mit Git",
-tech_langs:"Programmiersprachen & Core",tech_tools:"Tools & DevOps",tech_backend:"Backend & Datenbank",tech_frameworks:"Frameworks & UI",tech_ai:"KI & Data Science",tech_hosting:"Cloud, Deployment & Hosting",contact_eyebrow:"Kontakt",contact_title:"Lass uns reden.",contact_email:"E-Mail",contact_github:"Codes ansehen ↗",footer_rights:"© 2026 MAHMOUD. ALLE RECHTE VORBEHALTEN.",footer_impressum:"Impressum",footer_privacy:"Datenschutz",
-impressum_text:"Mahmoud Taklla<br>Software Developer<br>Oberländer Straße 2<br>93051 Regensburg, Deutschland<br><br>Kontakt: TischTakt.QR@outlook.com<br>Tel: +49 1525 2690273",
-privacy_text:"<p>Wir nehmen den Schutz Ihrer Daten ernst. Auf dieser Website werden keine Daten gesammelt und keine Cookies zur Nachverfolgung (Tracking) verwendet.</p><p>Der Provider der Seiten (Host) erhebt und speichert automatisch Informationen in sogenannten Server-Log-Dateien, die Ihr Browser automatisch übermittelt (z.B. IP-Adresse). Dies ist technisch notwendig, um Ihnen unsere Website anzuzeigen und die Stabilität zu gewährleisten.</p><p>Anfragen per E-Mail oder WhatsApp werden absolut vertraulich behandelt.</p>"},
-en:{page_title:"Mahmoud | Premium Software Development",nav_home:"Home",nav_about:"About Me",nav_work:"My Work",nav_tech:"Tech Stack",nav_contact:"Contact",hero_badge:"Available for new projects",hero_title:"MAHMOUD",hero_subtitle:"Premium Software Development",hero_whatsapp_btn:"Direct WhatsApp Contact",hero_work_btn:"View projects",stat_projects:"Projects",stat_tech:"Technologies",stat_lang:"Languages",
-about_pretitle:"Excellent software needs clear architecture",about_title:'High-quality code is more than just syntax, it automates processes and <span class="mut">integrates AI...</span>',about_desc:"As a Senior Software Developer, I transform complex problems into elegant solutions. My passion lies in creating real value through clean code and innovative technologies.",chip1:"Clean Code",chip2:"AI Integration",chip3:"Automation",
-work_eyebrow:"Portfolio",work_title:"My Work",project_resto_title:"Smart Resto",project_resto_desc:"A smart digital menu and ordering system for modern restaurants.",btn_view_demo:"VIEW DEMO",project_ufo_desc:"Interactive web game with smooth animations and complex JavaScript logic.",project_brs_desc:"Modern landing page for concrete cosmetic services with performant Next.js UI.",btn_view_project:"VIEW PROJECT",project_mo_desc:"Portfolio for a professional photographer showcasing work smoothly and extremely fast, featuring high-resolution videos using Next.js, React, and Tailwind CSS.",project_hw_title:"HW Automation",project_hw_desc:"System diagnostics tool with Jenkins CI/CD. Automated testing and scheduled client reports.",btn_view_doc:"DOCUMENTATION",project_git_desc:"My public repository. Discover clean code structures and more projects.",btn_view_github:"VISIT GITHUB",
-exp_eyebrow:"Journey",exp_title:"Experience",exp_role1:"Software Developer",exp_focus:"Current Focus",exp_task1:"▹ Conception and implementation of web applications using AI tools",exp_task2:"▹ Development of scalable software projects",exp_task3:"▹ Development of Python scripts to automate data processes",exp_role2:"IT Specialist for Application Development (Trainee)",exp_task4:"▹ Process automation, data analysis",exp_task5:"▹ Web development",exp_task6:"▹ Project management with Git",
-tech_langs:"Languages & Core",tech_tools:"Tools & DevOps",tech_backend:"Backend & Database",tech_frameworks:"Frameworks & UI",tech_ai:"AI & Data Science",tech_hosting:"Cloud, Deployment & Hosting",contact_eyebrow:"Contact",contact_title:"Let's talk.",contact_email:"Email",contact_github:"View Codes ↗",footer_rights:"© 2026 MAHMOUD. ALL RIGHTS RESERVED.",footer_impressum:"Imprint",footer_privacy:"Privacy Policy",
-impressum_text:"Mahmoud Taklla<br>Software Developer<br>Oberländer Straße 2<br>93051 Regensburg, Germany<br><br>Contact: TischTakt.QR@outlook.com<br>Phone: +49 1525 2690273",
-privacy_text:"<p>We take the protection of your data seriously. No data is collected on this website, and no tracking cookies are used.</p><p>The website provider automatically collects and stores information in server log files that your browser automatically transmits to us.</p>"},
-ar:{page_title:"محمود | تطوير برمجيات متقدمة",nav_home:"الرئيسية",nav_about:"من أنا",nav_work:"أعمالي",nav_tech:"التقنيات",nav_contact:"تواصل معي",hero_badge:"متاح لمشاريع جديدة",hero_title:"محمود",hero_subtitle:"تطوير برمجيات متقدمة",hero_whatsapp_btn:"تواصل مباشر عبر الواتساب",hero_work_btn:"شاهد المشاريع",stat_projects:"مشاريع",stat_tech:"تقنية",stat_lang:"لغات",
-about_pretitle:"البرمجيات الممتازة تتطلب هيكلية واضحة",about_title:'الكود عالي الجودة هو أكثر من مجرد صيغة، إنه يؤتمت العمليات و<span class="mut">يدمج الذكاء الاصطناعي...</span>',about_desc:"بصفتي مطور برمجيات، أقوم بتحويل المشاكل المعقدة إلى حلول أنيقة. شغفي يكمن في خلق قيمة حقيقية من خلال الكود النظيف والتقنيات المبتكرة.",chip1:"كود نظيف",chip2:"دمج الذكاء الاصطناعي",chip3:"الأتمتة",
-work_eyebrow:"المعرض",work_title:"أعمالي",project_resto_title:"سمارت ريستو",project_resto_desc:"نظام ذكي للمنيو الرقمي وإدارة الطلبات للمطاعم الحديثة.",btn_view_demo:"عرض الديمو",project_ufo_desc:"لعبة ويب تفاعلية برسومات متحركة سلسة ومنطق جافا سكريبت معقد.",project_brs_desc:"صفحة هبوط حديثة لخدمات تجميل الباطون بواجهة مستخدم سريعة مصممة بـ Next.js.",btn_view_project:"عرض المشروع",project_mo_desc:"بورتفوليو لمصور محترف يعرض أعماله بسلاسة وسرعة فائقة وفيديوهات عالية الدقة باستخدام تقنيات مثل Next.js و React و Tailwind.",project_hw_title:"أتمتة الأجهزة (HW)",project_hw_desc:"أداة تشخيص النظام باستخدام Jenkins-CI/CD. اختبار آلي وتقارير مجدولة للعملاء.",btn_view_doc:"قراءة التوثيق",project_git_desc:"مستودعي العام. اكتشف هياكل الأكواد النظيفة والمزيد من المشاريع.",btn_view_github:"زيارة جيت هاب",
-exp_eyebrow:"المسيرة",exp_title:"الخبرة",exp_role1:"مطور برمجيات",exp_focus:"التركيز الحالي",exp_task1:"▹ تصميم وتنفيذ تطبيقات الويب باستخدام أدوات الذكاء الاصطناعي",exp_task2:"▹ تطوير مشاريع برمجية قابلة للتوسع",exp_task3:"▹ تطوير سكربتات بايثون لأتمتة عمليات البيانات",exp_role2:"تدريب مهني - متخصص في تطوير التطبيقات",exp_task4:"▹ أتمتة العمليات، تحليل البيانات",exp_task5:"▹ تطوير الويب",exp_task6:"▹ إدارة المشاريع باستخدام Git",
-tech_langs:"لغات البرمجة والأساسيات",tech_tools:"الأدوات وDevOps",tech_backend:"الخلفية وقواعد البيانات",tech_frameworks:"أطر العمل وواجهات المستخدم",tech_ai:"الذكاء الاصطناعي وعلم البيانات",tech_hosting:"السحابة والنشر والاستضافة",contact_eyebrow:"تواصل",contact_title:"لنتحدث.",contact_email:"البريد الإلكتروني",contact_github:"عرض الأكواد ↗",footer_rights:"© 2026 محمود. جميع الحقوق محفوظة.",footer_impressum:"بيانات النشر",footer_privacy:"سياسة الخصوصية",
-impressum_text:"محمود تقلا<br>مطور برمجيات<br>Oberländer Straße 2<br>93051 Regensburg, ألمانيا<br><br>للتواصل: TischTakt.QR@outlook.com<br>هاتف: +49 1525 2690273",
-privacy_text:"<p>نحن نأخذ حماية بياناتك على محمل الجد. لا يتم جمع أي بيانات على هذا الموقع، ولا يتم استخدام أي ملفات تعريف ارتباط (Cookies) للتتبع.</p><p>يقوم مزود الموقع بجمع وتخزين المعلومات تلقائيًا في ملفات سجل الخادم التي يرسلها متصفحك تلقائيًا.</p>"}};
+        project_ufo_desc: "Interactive web game with smooth animations and complex JavaScript logic.",
+        btn_view_project: 'VIEW PROJECT <span class="group-hover:translate-x-2 transition-transform rtl:rotate-180 inline-block">➔</span>',
+        project_mo_desc: "Portfolio for a professional photographer showcasing work smoothly and extremely fast, featuring high-resolution videos using Next.js, React, and Tailwind CSS.",
+        project_hw_title: "HW Automation", project_hw_desc: "System diagnostics tool with Jenkins CI/CD. Automated testing and scheduled client reports.",
+        btn_view_doc: 'DOCUMENTATION <span class="group-hover:translate-x-2 transition-transform rtl:rotate-180 inline-block">➔</span>',
+        project_git_desc: "My public repository. Discover clean code structures and more projects.",
+        btn_view_github: 'VISIT GITHUB <span class="group-hover:translate-x-2 transition-transform rtl:rotate-180 inline-block">➔</span>',
+        exp_title: "Experience",
+        exp_role1: "Software Developer",
+        exp_focus: "Current Focus",
+        exp_task1: "▹ Conception and implementation of web applications using AI tools",
+        exp_task2: "▹ Development of scalable software projects",
+        exp_task3: "▹ Development of Python scripts to automate data processes",
+        exp_role2: "IT Specialist for Application Development (Trainee)",
+        exp_task4: "▹ Process automation, data analysis",
+        exp_task5: "▹ Web development",
+        exp_task6: "▹ Project management with Git",
+        tech_langs: "Programming Languages", tech_tools: "Tools", tech_frameworks: "Frameworks",
+        contact_title: "Let's talk.", contact_email: "Email", contact_github: "View Codes ↗",
+        footer_rights: "© 2026 MAHMOUD. ALL RIGHTS RESERVED.", footer_impressum: "Imprint", footer_privacy: "Privacy Policy",
+        impressum_text: "Mahmoud Taklla<br>Software Developer<br>Oberländer Straße 2<br>93051 Regensburg, Germany<br><br>Contact: Benachrichtigung.Mahmoud@hotmail.com<br>Phone: +49 1525 2690273",
+        privacy_text: "<p>We take the protection of your data seriously. No data is collected on this website, and no tracking cookies are used.</p><br><p>The website provider automatically collects and stores information in server log files that your browser automatically transmits to us.</p>"
+      },
+      ar: {
+        page_title: "محمود | تطوير برمجيات متقدمة",
+        nav_home: "الرئيسية", nav_about: "من أنا", nav_work: "أعمالي", nav_contact: "تواصل معي",
+        hero_title: "محمود", hero_subtitle: "تطوير برمجيات متقدمة",
+        about_pretitle: "البرمجيات الممتازة تتطلب هيكلية واضحة",
+        about_title: 'الكود عالي الجودة هو أكثر من مجرد صيغة، إنه يؤتمت العمليات و<span class="text-slate-400 dark:text-gray-500">يدمج الذكاء الاصطناعي...</span>',
+        about_desc: "مطوّر برمجيات متخصص في تطبيقات الويب والأتمتة والذكاء الاصطناعي. في تدريبي المهني كمتخصص في تطوير التطبيقات في شركة AVL في ريغنسبورغ أعمل مع Git وأتمتة العمليات وتطوير الويب. إلى جانب ذلك أطوّر مشاريعي الخاصة بـ Next.js وSupabase وPython، من قوائم المطاعم الرقمية إلى خطوط CI/CD.",
+        work_title: "أعمالي",
 
-function changeLanguage(l){const h=document.documentElement,T=translations[l];h.lang=l;h.dir=l==='ar'?'rtl':'ltr';
-  $$('.lang button').forEach(b=>b.classList.toggle('active',b.dataset.l===l));
-  $$('[data-i18n]').forEach(e=>{const v=T[e.dataset.i18n];if(v!==undefined)e.innerHTML=v});document.title=T.page_title}
-const nl=navigator.language||'de';changeLanguage(nl.startsWith('ar')?'ar':nl.startsWith('en')?'en':'de');
+        project_resto_title: "سمارت ريستو",
+        project_resto_desc: "نظام ذكي للمنيو الرقمي وإدارة الطلبات للمطاعم الحديثة.",
+        project_resto_url: "https://smart-resto.pages.dev/menu/demo",
+        btn_view_demo: 'عرض الديمو <span class="group-hover:-translate-x-2 transition-transform rtl:rotate-180 inline-block">➔</span>',
 
-/* ===== performance: reveal on scroll, then drop animation classes; pause hero animations when off-screen ===== */
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const t=e.target;t.classList.add('in');io.unobserve(t);setTimeout(()=>t.classList.remove('rv','in','d1','d2','d3'),1100)}}),{threshold:.1});
-$$('.rv').forEach(el=>io.observe(el));
-new IntersectionObserver(([e])=>$('#home').classList.toggle('off',!e.isIntersecting)).observe($('#home'));
-</script>
+        project_ufo_desc: "لعبة ويب تفاعلية برسومات متحركة سلسة ومنطق جافا سكريبت معقد.",
+        btn_view_project: 'عرض المشروع <span class="group-hover:-translate-x-2 transition-transform rtl:rotate-180 inline-block">➔</span>',
+        project_mo_desc: "بورتفوليو لمصور محترف يعرض أعماله بسلاسة وسرعة فائقة وفيديوهات عالية الدقة باستخدام تقنيات مثل Next.js و React و Tailwind.",
+        project_hw_title: "أتمتة الأجهزة (HW)", project_hw_desc: "أداة تشخيص النظام باستخدام Jenkins-CI/CD. اختبار آلي وتقارير مجدولة للعملاء.",
+        btn_view_doc: 'قراءة التوثيق <span class="group-hover:-translate-x-2 transition-transform rtl:rotate-180 inline-block">➔</span>',
+        project_git_desc: "مستودعي العام. اكتشف هياكل الأكواد النظيفة والمزيد من المشاريع.",
+        btn_view_github: 'زيارة جيت هاب <span class="group-hover:-translate-x-2 transition-transform rtl:rotate-180 inline-block">➔</span>',
+        exp_title: "الخبرة",
+        exp_role1: "مطور برمجيات",
+        exp_focus: "التركيز الحالي",
+        exp_task1: "▹ تصميم وتنفيذ تطبيقات الويب باستخدام أدوات الذكاء الاصطناعي",
+        exp_task2: "▹ تطوير مشاريع برمجية قابلة للتوسع",
+        exp_task3: "▹ تطوير سكربتات بايثون لأتمتة عمليات البيانات",
+        exp_role2: "تدريب مهني - متخصص في تطوير التطبيقات",
+        exp_task4: "▹ أتمتة العمليات، تحليل البيانات",
+        exp_task5: "▹ تطوير الويب",
+        exp_task6: "▹ إدارة المشاريع باستخدام Git",
+        tech_langs: "لغات البرمجة", tech_tools: "الأدوات", tech_frameworks: "أطر العمل",
+        contact_title: "لنتحدث.", contact_email: "البريد الإلكتروني", contact_github: "عرض الأكواد ↗",
+        footer_rights: "© 2026 محمود. جميع الحقوق محفوظة.", footer_impressum: "بيانات النشر", footer_privacy: "سياسة الخصوصية",
+        impressum_text: "محمود تقلا<br>مطور برمجيات<br>Oberländer Straße 2<br>93051 Regensburg, ألمانيا<br><br>للتواصل: Benachrichtigung.Mahmoud@hotmail.com<br>هاتف: +49 1525 2690273",
+        privacy_text: "<p>نحن نأخذ حماية بياناتك على محمل الجد. لا يتم جمع أي بيانات على هذا الموقع، ولا يتم استخدام أي ملفات تعريف ارتباط (Cookies) للتتبع.</p><br><p>يقوم مزود الموقع بجمع وتخزين المعلومات تلقائيًا في ملفات سجل الخادم التي يرسلها متصفحك تلقائيًا.</p>"
+      }
+    };
+
+    function changeLanguage(lang) {
+      document.documentElement.lang = lang;
+      if (lang === 'ar') { document.documentElement.setAttribute('dir', 'rtl'); }
+      else { document.documentElement.setAttribute('dir', 'ltr'); }
+
+      document.querySelectorAll('[id^="btn-"]:not([id$="-mob"])').forEach(btn => btn.classList.remove('text-slate-900', 'dark:text-white', 'font-bold'));
+      if(document.getElementById('btn-' + lang)) document.getElementById('btn-' + lang).classList.add('text-slate-900', 'dark:text-white', 'font-bold');
+
+      document.querySelectorAll('[id$="-mob"]').forEach(btn => btn.classList.remove('text-slate-900', 'dark:text-white', 'font-bold'));
+      if(document.getElementById('btn-' + lang + '-mob')) document.getElementById('btn-' + lang + '-mob').classList.add('text-slate-900', 'dark:text-white', 'font-bold');
+
+      const elements = document.querySelectorAll('[data-i18n]');
+      elements.forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) { el.innerHTML = translations[lang][key]; }
+      });
+
+      const restoLink = document.getElementById('resto-link');
+      if (restoLink && translations[lang] && translations[lang].project_resto_url) {
+        restoLink.href = translations[lang].project_resto_url;
+      }
+    }
+
+    window.onload = () => { changeLanguage('de'); };
+  </script>
+
 </body>
 </html>
